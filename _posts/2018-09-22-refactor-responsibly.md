@@ -36,3 +36,7 @@ Some things to keep in mind while using the Exoskeleton pattern:
 I hope you will think twice before you utter the dreaded words "let's rebuild it from scratch" next time. It is extremely important to tackle technical debt at a continuous basis, but problematic legacy code needs to be refactored responsibly, one piece at a time, rather than blindly. Please don't risk taking on more than you can chew.
 
 This being said, you should never be afraid of deleting code that is not being used (for instance commented-out or "dead" code that cannot be reached at runtime). Hopefully you are using a version control system like Git, meaning you can always retrieve the deleted code again if you (against all odds) might need it back.
+
+---
+
+*Did I make a mistake? Please feel free to correct me by [issuing a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Refactor responsibly"
-date:   2018-09-22 17:27:45 +0200
+date:   2018-09-22 20:34:11 +0200
 categories: refactoring
 ---
 Rewriting a large piece of software from scratch is [usually not a good idea](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/
@@ -9,9 +9,8 @@ Rewriting a large piece of software from scratch is [usually not a good idea](ht
 
 If you are not convinced, here are some other reasons why you should be careful with throwing away legacy code mindlessly:
 
-
 * By rewriting you lose [accumulated knowledge in form of bug fixes that catches corner cases](http://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf)
-* Chesterton's fence: code is not written without a reason. Therefore, don't delete seemingly unnecessary code until you understand why it was put there in the first place.
+* Remember [Chesterton's fence](https://abovethelaw.com/2014/01/the-fallacy-of-chestertons-fence/): code is not written without a reason. Therefore, don't delete seemingly unnecessary code until you understand why it was put there in the first place.
 * The code you write today will be the legacy code of tomorrow.
 
 ## Patterns of responsible refactoring

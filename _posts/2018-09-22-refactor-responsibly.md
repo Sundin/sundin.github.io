@@ -29,9 +29,9 @@ Put your old code inside a shell that's running the new framework you have chose
 
 Some things to keep in mind while using the Exoskeleton pattern:
 
-* Cover your legacy code with tests, then replace code piece by piece, and all the while keeping the tests green. 
-* [Event Intercepton](https://www.martinfowler.com/bliki/EventInterception.html) 
-* [Asset capture](https://www.martinfowler.com/bliki/AssetCapture.html)
+* Cover your legacy code with tests, then replace code piece by piece, and all the while [keeping the tests green](https://www.youtube.com/watch?v=aWiwDdx_rdo). This is probably the number one, most valuable lesson to learn in order to succeed with any form of refactoring.
+* [Event Intercepton](https://www.martinfowler.com/bliki/EventInterception.html): This is a technique recommended by Martin Fowler himself when doing this type of refactoring. Tap into the stream of events flowing into your legacy system from the outside world. Make sure these events also arrive into your shiny new exoskeleton. Once you have that foundation in place, you can start moving actual functionality out into the exoskeleton.
+* [Asset capture](https://www.martinfowler.com/bliki/AssetCapture.html): Once you have your Event Interception into place, Martin Fowler suggest you continue by moving one type of data entity (i.e., one type of asset) at a time into your new system. The more finegrained entity/asset type you are able to identify, the better (again, it's better to start small and build from there). In order to get this to work, you will need to be able to synchronize all entries of that certain type into the new system, and ideally also be able to synchronize them back again. This approach will make sure you have your back covered until your new system is able to handle all the various use cases concering that asset/entity type.
 
 ## Final words
 I hope you will think twice before you utter the dreaded words "let's rebuild it from scratch" next time. It is extremely important to tackle technical debt at a continuous basis, but problematic legacy code needs to be refactored responsibly, one piece at a time, rather than blindly. Please don't risk taking on more than you can chew.

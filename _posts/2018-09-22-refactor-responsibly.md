@@ -12,6 +12,7 @@ If you are not convinced, here are some other reasons why you should be careful 
 * By rewriting you lose [accumulated knowledge in form of bug fixes that catches corner cases](http://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf).
 * Remember [Chesterton's fence](https://abovethelaw.com/2014/01/the-fallacy-of-chestertons-fence/): code is not written without a reason. Therefore, don't delete seemingly unnecessary code until you understand why it was put there in the first place.
 * The code you write today will be the legacy code of tomorrow.
+* Make sure you are able to [finish what you start]({{ site.baseurl }}{% post_url 2018-09-28-last-week-mindset %}).
 
 ## Patterns of responsible refactoring
 

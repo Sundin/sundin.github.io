@@ -13,6 +13,7 @@ mv _drafts/$1.md _posts/$FILENAME
 
 cd _posts
 
+STRINGTOREPLACE="dddd: a date will be inserted here by the ./publish-post.sh script"
 EXACTDATE=`date '+%Y-%m-%d %H:%M:%S %z'`
 
-sed -i '' "s/date: /date: ${EXACTDATE}/g" ${FILENAME}
+sed -i '' "s/${STRINGTOREPLACE}/date: ${EXACTDATE}/g" ${FILENAME}

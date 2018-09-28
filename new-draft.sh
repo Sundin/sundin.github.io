@@ -11,7 +11,7 @@ cat > _drafts/$1.md <<- "EOF"
 ---
 layout: post
 title: ""
-date:   
+dddd: a date will be inserted here by the ./publish-post.sh script
 categories: 
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Last Week Mindset"
-dddd: a date will be inserted here by the ./publish-post.sh script
-categories: 
+date: 2018-09-29 20:34:11 +0200
+categories: Mindset
 ---
 
 Being a consultant, I'm quite used to switching projects and thus have had a bit of practice in handing off a project to other developers. This has led me to a range of conslusions that I think can benefit every serious software engineer, consultant or not. I would like to summarize these findings into the "last week mindset", or; if this was your last week on your current assignment, how would you spend that week?

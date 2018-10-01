@@ -2,7 +2,7 @@
 layout: post
 title: "Whole Value Pattern"
 date_placeholder: 0
-categories: patterns
+categories: Patterns
 ---
 
 The [Whole Value Pattern](http://c2.com/ppr/checks.html) is a pattern first described by [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham) in 1994. It simply implies that a value should always be stored together with its corresponding unit, which together forms a "whole value". A lone numerical value is usually not meaningful on its own, without a corresponding unit, and is therefore a violation of this pattern.

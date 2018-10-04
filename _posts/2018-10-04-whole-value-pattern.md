@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Whole Value Pattern"
-date_placeholder: 0
+date: 2018-10-04 14:26:45 +0200
 categories: Patterns
 ---
 
 The [Whole Value Pattern](http://c2.com/ppr/checks.html) is a pattern first described by [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham) in 1994. It simply implies that a value should always be stored together with its corresponding unit, which together forms a "whole value". A lone numerical value is usually not meaningful on its own, without a corresponding unit, and is therefore a violation of this pattern.
 
-The main benefit of following the Whole Value Pattern is that implicit developer knowledge can be made explicit in the codebase instead.
+The main benefit of following the Whole Value Pattern is that implicit developer knowledge can be made explicit in the codebase instead. Thereby the risk of mixing up what unit the data is stored in is eliminated.
 
 ## Examples
 ### Money

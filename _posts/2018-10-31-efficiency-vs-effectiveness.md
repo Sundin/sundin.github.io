@@ -2,7 +2,7 @@
 layout: post
 title: "Efficiency vs Effectiveness"
 date: 2018-10-31 13:05:15 +0100
-categories: Agility, Mindset
+categories: Agility Mindset
 ---
 
 In Swedish, "efficiency" and "effectiveness" are both translated into the same word. With Swedish being my mother tongue, this leads me to sometimes mixing these terms up. This article describes the difference between the two concepts, and why both are important to understand.

@@ -36,6 +36,9 @@ To preview your site with drafts, simply run:
 
 Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
 
+### Categories
+You can list multiple categories for a single post by simply separating them with a space.
+
 ## TODO
 
 * Spell-checking.

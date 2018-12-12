@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kafkaesque Software Development"
-date_placeholder: 0
+date: 2018-12-12 16:54:01 +0100
 categories: Agility
 ---
 
@@ -13,18 +13,18 @@ So will a new feature add value or decrease it? The (post-mortemly) famous write
 
 The story is about an unidentified animal building a burrow for protection. However, the animal keeps wondering if it should have designed its burrow differently. Maybe the door shuld have been sturdier to keep out attackers, but that would of course also make it harder for the little animal to escape in an emergency situation. Or maybe it should have added a back door as an alternative escape route, but on the other hand that would also be an entry point for a hungry predator. And so on, and so on...
 
-Just like the animal in the story, we will never be able to simply reason the answer to such questions out. But unlike the animal, we are able to experiment cheaply and without risk of getting killed. In nature, experiments are also carried out by real animals all the time due to random mutations which change their behaviour (perhaps by constructiong their burrow in a slightly different way) in subtle ways. The only way for the animal to get feedback from the experiment though is to wait for the process of natural selection to either kill off the animal or enable it to successfully pass on its genes to its offspring. In nature, this process has been repeated over and over again across countless millenia. The result is that individuals that built their burrows with feature A died out while those that built feature B prospered and multiplied. 
+Just like the animal in the story, we will never be able to simply reason the answer to such questions out. In nature, the only way to get an answer is through "experiments" carried out by real animals (due to random mutations which change their behaviour), perhaps leading to the animal instead  constructiong their burrow in a slightly different way. The only way for the animal to get feedback from the experiment though is to wait for the process of natural selection to either kill off the animal or enable it to successfully pass on its genes to its offspring. In nature, this process has been repeated over and over again across countless millenia. The result is that individuals that built their burrows with feature A died out while those that built feature B prospered and multiplied. 
 
-When it comes to software, people usually don’t have to die or get hurt in order for us to learn from our mistakes. And we can accelerate the process of learning by running controlled experiments with short feedback loops. Here are some well-proven techniques for running controlled experiments to get you started (also, beware of overfitting to early adapters - you need to run your experiments continuously).    
-- A/B testing
-- Rapid/paper prototyping
-- User analytics
-- Capturing user feedback
+When it comes to software, people usually don’t have to die or get hurt in order for us to learn from our mistakes. Unlike the animal in *The Burrow*, we are able to experiment cheaply and without risk of getting killed. And we can accelerate the process of learning by running controlled experiments with short feedback loops. Here are some well-proven techniques to get you started (also, beware of overfitting to early adapters - you need to repeat these steps continuously and regurarly).
+- Run controlled experiments.
+- A/B testing.
+- Rapid/paper prototyping.
+- User analytics.
+- Capturing user feedback.
 
 
-## Acknowledgements
-
-https://www.newcriterion.com/issues/2018/10/how-to-read-kafka-part-i
+### Acknowledgements
+This post was inspired by [How to read Kafka: part I](https://www.newcriterion.com/issues/2018/10/how-to-read-kafka-part-i) by John Ellis.
 
 ---
 

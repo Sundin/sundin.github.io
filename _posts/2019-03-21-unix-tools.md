@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Unix Tools"
-date_placeholder: 0
+date: 2019-03-21 13:33:20 +0100
 categories: Workflow
 ---
 

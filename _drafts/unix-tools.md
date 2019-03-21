@@ -1,13 +1,15 @@
 ---
 layout: post
-title: ""
+title: "Unix Tools"
 date_placeholder: 0
-categories: 
+categories: Workflow
 ---
 
-UNIX TOOLS
+What is commonly referred to as the **Unix tools** are a set of commands that are available on all Unix systems. Together, these form part of the basic toolkit for any serious software engineer. You should learn how to use these tools properly, as they can grant you an enormous boost in your daily workflow, and not the least when it comes to automating task and routines, such as in your team's automated CI pipeline.
 
 # Commonly used Unix tools
+
+Here you will find a subset of some of the most useful Unix commands.
 
 ## cat
     cat file1.txt
@@ -16,10 +18,9 @@ Outputs the contents of a given file.
 
 ## find
     find . -name README.md
-
     find . -name "*.txt"
 
-Search through the given directory (and its subdirectories) for the given pattern (filename in the examples above).
+Search through the given directory (and its subdirectories) for the given regexp pattern (based on filename in the examples above).
 
 ## diff 
     diff file1 file2
@@ -36,12 +37,14 @@ The `sed` command can be used in many different and powerful ways. Two of the mo
 
 ### Replacing
 To replace all occurences of "hello" with "goodbye":
+
     sed 's/hello/goodbye/' file1.txt > file2.txt
 
 Note that you can use any regexp for the text you want to match.
 
 ### Filtering
 The following command will display only lines containing "hello":
+
     sed -n '/hello/p' file1.txt
 
 
@@ -62,11 +65,14 @@ Useful flags:
 
 # Putting it all together
 
-pipe
->
-status codes (0 = success)
-man
+One of the most powerful features of the Unix toolkit, indeed one of the very cornerstones of the entire [Unix philosophy](https://arp242.net/the-art-of-unix-programming), is that the output of one command can always act as the input of another. This enables you to chain multiple commands in order to produce the desired outcome.
 
+The most commonly used operators are:
+* Piping, also known as filtering: Simply put a `|` character between two commands in order to "pipe" the output of the first command into the next one.
+* Redirection: Use the `>` character in order to redirect the output of the command on the left hand side into the file specified on the right hand side.
+* Sequential commands: In order to run a series of commands indepentently but in sequence, use either the AND (`&&`) or the OR (`||`) operator. `&&` will run the second command only if the first command succeeded (i.e., returned 0 as its status code) and `||` will run the second command only if the first one failed.
+
+Some examples are given below.
 
 ## Count results
 Combine find and wc:
@@ -75,7 +81,9 @@ Combine find and wc:
 
     arp -a | wc -l
 
+# Further reading
 
+Remember that you can always read the manual for any Unix command by typing `man <command>` into your terminal.
 
 ---
 

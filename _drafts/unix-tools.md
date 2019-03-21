@@ -68,18 +68,33 @@ Useful flags:
 One of the most powerful features of the Unix toolkit, indeed one of the very cornerstones of the entire [Unix philosophy](https://arp242.net/the-art-of-unix-programming), is that the output of one command can always act as the input of another. This enables you to chain multiple commands in order to produce the desired outcome.
 
 The most commonly used operators are:
-* Piping, also known as filtering: Simply put a `|` character between two commands in order to "pipe" the output of the first command into the next one.
-* Redirection: Use the `>` character in order to redirect the output of the command on the left hand side into the file specified on the right hand side.
-* Sequential commands: In order to run a series of commands indepentently but in sequence, use either the AND (`&&`) or the OR (`||`) operator. `&&` will run the second command only if the first command succeeded (i.e., returned 0 as its status code) and `||` will run the second command only if the first one failed.
+* **Piping**, also known as **filtering**: Simply put a `|` character between two commands in order to "pipe" the output of the first command into the next one.
+* **Redirection**: Use the `>` character in order to redirect the output of the command on the left hand side into the file specified on the right hand side.
+* **Sequential commands**: In order to run a series of commands indepentently but in sequence, use either the AND (`&&`) or the OR (`||`) operator. `&&` will run the second command only if the first command succeeded (i.e., returned 0 as its status code) and `||` will run the second command only if the first one failed.
 
 Some examples are given below.
 
 ## Count results
-Combine find and wc:
+Combine `find` and `wc` in order to count the number of `.txt` files in the current directory:
 
     find . -name "*.txt" | wc -l
 
+Count the number of entries in your computer's ARP table:
+
     arp -a | wc -l
+
+## Write output to file
+
+Grab all lines containing "user" and write them to a new file:
+
+    grep user file1.txt > newfile.txt
+
+## Handle status codes
+All Unix commands will normally return a status code of 0 as long the command terminated successfully. Make sure to follow this practice when you are writing your own scripts!
+
+    ./my_script.sh && echo "Success!"
+    ./my_script.sh || echo "Fail"
+
 
 # Further reading
 

@@ -43,7 +43,7 @@ To replace all occurences of "hello" with "goodbye":
 Note that you can use any regexp for the text you want to match.
 
 ### Filtering
-The following command will display only lines containing "hello":
+The following command will display all lines containing "hello" from the file file1.txt:
 
     sed -n '/hello/p' file1.txt
 
@@ -85,12 +85,12 @@ Count the number of entries in your computer's ARP table:
 
 ## Write output to file
 
-Grab all lines containing "user" and write them to a new file:
+Grab all lines containing "user" in file1.txt and write them to a new file:
 
     grep user file1.txt > newfile.txt
 
 ## Handle status codes
-All Unix commands will normally return a status code of 0 as long the command terminated successfully. Make sure to follow this practice when you are writing your own scripts!
+All Unix commands will normally return a status code of 0 as long the command terminated successfully. Make sure to follow this practice when you are writing your own scripts! Doing so will enable you to use the `&&` and `||` operators like this for instance:
 
     ./my_script.sh && echo "Success!"
     ./my_script.sh || echo "Fail"

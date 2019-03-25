@@ -20,7 +20,7 @@ Outputs the contents of a given file.
     find . -name README.md
     find . -name "*.txt"
 
-Search through the given directory (and its subdirectories) for the given regexp pattern (based on filename in the examples above).
+Search through the given directory (and its subdirectories) for the given pattern (based on filename in the examples above).
 
 ## diff 
     diff file1 file2

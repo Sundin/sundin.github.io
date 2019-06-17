@@ -25,7 +25,9 @@ Search through the given directory (and its subdirectories) for the given patter
 ## diff 
     diff file1 file2
 
-This command compares the contents of two files and displays the differences. 
+This command compares the contents of two files and displays the differences. You can also use `sdiff` to watch the difference side by side instead:
+
+    sdiff file1 file2
 
 ## wc
     wc file1 file2

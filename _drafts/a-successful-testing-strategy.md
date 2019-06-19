@@ -13,18 +13,18 @@ Today we will a closer look at the testing pyramid and see how we can transform 
 Here is the terminology I prefer to use. The concepts can sometimes be overlapping and confusing, but the important thing to keep in mind is to get a rough feeling of how testing can be carried out on different abstraction levels. 
 
 ### Unit tests
-Unit tests are the lowest level of testing. Her you should strive to catch as many problems as possible: logical bugs, malformed input, broken UI, etc. The reason is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. You should try to test as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
+Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
 
 Some examples of different kinds of unit tests:
-  - Backend logic tests with mocked database.
-  - Frontend logic tests, in particular business logic such as helpers, selectors and reducers.
-  - Snapshot tests.
+  - Backend logic tests with a mocked database.
+  - Frontend logic tests, in particular business logic and commonly used helpers and utilities and such.
+  - Snapshot tests in order to catch UI regressions.
 
 ### Component tests
-Component tests are tests that verify an entire component in isolation to other components. You have to decide for yourself what your definition of a component should be. In a microservice architecture each service should normally be considered as its own component though. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details. Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
+Component tests are tests that verify an entire component in isolation to other components. You have to decide for yourself what your definition of a component should be. In a microservice architecture this definition will typically be that each individual service is its own service. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests which according to my experience are usually more closely coupled with implemention details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
 
 Some examples of different kinds of component tests:
-  - Backend tests for a microservice using a dummy Docker database.
+  - Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database](https://sundin.github.io/testing/2019/03/29/dockerized-db-tests.html)).
   - Cypress tests with mocked backend calls.
 
 ### Contract tests
@@ -45,34 +45,6 @@ Further information about E2E tests can be found in the [Cypress documentation](
  > *[...]*
  > * *Use [stubbing] for the vast majority of tests*
  > * *Mix and match, typically have one true end-to-end test, and then stub the rest*
-
-
-## Guidelines
-
-In this section I will describe a number of best practices I find useful to keep in mind when writing tests.
-TODO: put in separate post?
-
-### Ownership and Scope
-The team owning the functionality should also own the entire test stack testing that functionality. That means no separate QA/testing role or team within the organization. Building software is a team effort and it is crucial that automated tests is considered a first-class citizen of your development process, as opposed to something that is half-heartedly latched on retrospectively after the code has already been written.
-
-All functionality owned by the team needs to be tested, but also interfaces that are consumed or exposed by services belonging to other teams.
-
-### Code coverage
-> "100% code coverage tells you nothing, but less than 100% code coverage tells you something." – Unknown
-Aiming for covering 100% of your code with tests is probably not realistic and perhaps not very useful neither. I usually start by just writing two unit tests for each of my functions; one that tests some basic use case for the function and another test that calls the function with empty parameters. I tend to think that these two cases covers most of the potential bugs in the function with a minimal time investment in writing tests.
-
-However, it is usally a good idea to have some kind of code coverage check in your build pipeline. I usually find out what the current code coverage ratio is in the project, and then set that value as the minimum threshold in the pipeline. The idea here is mainly to make sure that new code that gets written is covered by unit tests, since the code coverage ratio would otherwise go below the threshold. Therefore you should strive at continuously increasing this threshold as your coverage ratio grows over time.
-
-### Other guidelines
-
-* If you find a bug, write a test that captures it.
-* Always mock time (current date, etc.) to reduce flakiness.
-* New features always covered with unit tests. Other tests if needed.
-* All tests should test the minimal possible functionality.
-  To be avoided: huge test that covers many outcomes.
-* Each test should own its data. For example, insert/delete Docker database rows.
-* Tests should be non-verbose and only print to the log if something unexpected happened.
-
 
 
 

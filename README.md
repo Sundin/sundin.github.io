@@ -1,17 +1,24 @@
 # My Awesome Blog
 
-This blog was created using [Jekyll](https://jekyllrb.com/).
+This blog was created using [Jekyll](https://jekyllrb.com/) and can be read at [sundin.github.io](https://sundin.github.io/).
 
 ## Requirements
 
-Ruby (using RVM is recommended)
+**Ruby 2.6.3** (using RVM is recommended).
 
-Jekyll:
+Instructions for installing Ruby with RVM:
+
+    \curl -sSL https://get.rvm.io | bash -s stable
+    rvm install 2.6.3
+    rvm --default use 2.6.3
+
+**Jekyll**:
 
     gem install bundler jekyll
 
 ## Setup
 Install gems with:
+
     bundle install
 
 ## Running locally 
@@ -36,7 +43,7 @@ To preview your site with drafts, simply run:
 
 Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
 
-### Categories
+## Categories
 You can list multiple categories for a single post by simply separating them with a space.
 
 ## TODO

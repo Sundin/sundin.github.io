@@ -5,7 +5,7 @@ date_placeholder: 0
 categories: 
 ---
 
-Today we will a closer look at the testing pyramid and see how we can transform that into a concrete strategy for how to write your tests.
+Today we will a closer look at the testing pyramid and see how we can transform that into a concrete strategy for how to write your tests. While the terminology I use is not exactly the same as the one used by Mike Cohn in the original testing pyramid, the core concepts remain the same – a strong foundation of unit tests, complemented with a sufficient number of component tests and sprinkled with a few end-to-end tests as a last line of defense.
 
 
 ## Types of tests
@@ -28,7 +28,7 @@ Some examples of different kinds of component tests:
   - Cypress tests with mocked backend calls.
 
 ### Contract tests
-Contract tests are used to test the interfaces (such as APIs) between services in order to avoid regression. The reason is to prevent one service to suddenly change its interface in a way that breaks some other service that is dependent on the first. Contract tests are particularly useful for services that are consumed across team-boundaries.
+Contract tests are used to test the interfaces (such as APIs) between services in order to avoid regression. The reason is to prevent one service to suddenly change its interface in a way that breaks some other service that is dependent on the first. Contract tests are particularly useful for services that are consumed across team-boundaries. You can choose to view the contract tests as a subset of the component tests described above, but I prefer to make the contract tests a first-class citizen of our testing strategy in order to stress their importance.
 
 Some examples of different kinds of contract tests:
   - Pacts between consumer and provider.
@@ -48,6 +48,9 @@ Further information about E2E tests can be found in the [Cypress documentation](
 
 
 ## Guidelines
+
+In this section I will describe a number of best practices I find useful to keep in mind when writing tests.
+TODO: put in separate post?
 
 ### Ownership and Scope
 The team owning the functionality should also own the entire test stack testing that functionality. That means no separate QA/testing role or team within the organization. Building software is a team effort and it is crucial that automated tests is considered a first-class citizen of your development process, as opposed to something that is half-heartedly latched on retrospectively after the code has already been written.

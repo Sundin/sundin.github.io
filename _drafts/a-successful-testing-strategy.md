@@ -13,40 +13,41 @@ Today we will a closer look at the testing pyramid and see how we can transform 
 Here is the terminology I prefer to use. The concepts can sometimes be overlapping and confusing, but the important thing to keep in mind is to get a rough feeling of how testing can be carried out on different abstraction levels. 
 
 ### Unit tests
-Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
+Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, corner cases, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
 
 Some examples of different kinds of unit tests:
   - Backend logic tests with a mocked database.
-  - Frontend logic tests, in particular business logic and commonly used helpers and utilities and such.
-  - Snapshot tests in order to catch UI regressions.
+  - Frontend logic tests, in particular business logic and commonly used helper/utility functions.
+  - [Snapshot tests](https://jestjs.io/docs/en/snapshot-testing) in order to catch UI regressions.
 
 ### Component tests
-Component tests are tests that verify an entire component in isolation to other components. You have to decide for yourself what your definition of a component should be. In a microservice architecture this definition will typically be that each individual service is its own service. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests which according to my experience are usually more closely coupled with implemention details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
+Component tests are tests that verify an entire component in isolation to other components. You have to decide for yourself what your definition of a component should be. In a microservice architecture each individual service will typically be considered a component. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests, which according to my experience are usually more closely coupled with implemention details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
 
 Some examples of different kinds of component tests:
   - Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database](https://sundin.github.io/testing/2019/03/29/dockerized-db-tests.html)).
-  - Cypress tests with mocked backend calls.
+  - [Cypress](https://www.cypress.io/) tests with mocked backend calls.
 
 ### Contract tests
-Contract tests are used to test the interfaces (such as APIs) between services in order to avoid regression. The reason is to prevent one service to suddenly change its interface in a way that breaks some other service that is dependent on the first. Contract tests are particularly useful for services that are consumed across team-boundaries. You can choose to view the contract tests as a subset of the component tests described above, but I prefer to make the contract tests a first-class citizen of our testing strategy in order to stress their importance.
+Contract tests are used to test the interfaces (such as APIs) between services in order to avoid regression. The reason is to prevent one service to suddenly change its interface in a way that breaks some other service that is dependent on it. Contract tests are particularly useful for services that are consumed across team-boundaries. You can choose to view the contract tests as a subset of the component tests described above, but I prefer to make the contract tests a first-class citizen of our testing strategy in order to stress their importance.
 
 Some examples of different kinds of contract tests:
-  - Pacts between consumer and provider.
+  - [Pacts](https://docs.pact.io/) between consumer and provider.
 
 ### End-to-end (E2E) tests
-As a last resort, you might have to rely on end-to-end (E2E) tests, sometimes also called integration tests. These are tests that tests a real-life scenario, throughout the whole call stack, and without any mocks at all. While these can sometimes be valuable, you should always strive to catch as many problems as you can much earlier in the testing cycle. The reason is that it will be difficult to pinpoint the error if a tests fails, and also that any test that relies on actual network requests will often be severely lacking in the reproduceability aspect. So therefore you should have at most a handful of E2E tests, perhaps something like a simple sanity check just before deploying to production.
+As a last resort, you might have to rely on end-to-end (E2E) tests, sometimes also called integration tests. These are tests that tests a real-life scenario, throughout the whole call stack, and without any mocks at all. While these can sometimes be valuable, you should always strive to catch as many problems as you can much earlier in the testing cycle. The reason is that it will be difficult to pinpoint the error if a tests fails, and also that any test that relies on actual network requests will often be severely lacking in the reproducibility aspect. So therefore you should have at most a handful of E2E tests, perhaps something like a simple [sanity check](https://en.wikipedia.org/wiki/Sanity_check#Software_development) just before deploying to production.
 
 Some examples of different kinds of E2E tests:
-  - Manual smoke tests.
+  - Manual [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)).
   - Cypress tests with the real backend.
 
-Further information about E2E tests can be found in the [Cypress documentation](https://docs.cypress.io/guides/guides/network-requests.html#Testing-Strategies):
+The official [Cypress documentation](https://docs.cypress.io/guides/guides/network-requests.html#Testing-Strategies) agrees with my view that the number of E2E tests should be kept at a minimum:
  > *It is a good idea to have end-to-end tests around your application’s critical paths. These typically include user login, signup, or other critical  paths such as billing.*
  > *[...]*
  > * *Use [stubbing] for the vast majority of tests*
  > * *Mix and match, typically have one true end-to-end test, and then stub the rest*
 
-
+## Summary
+Whether you agree with my opinion on different types of tests or not, I always think it is a good idea to discuss such matters with your fellow team members and agree upon a written-down testing strategy to follow. This will both make it easier for you as a team to prioritize automated testing and make onboarding of new team members easier. Feel free to use the above as a starting point or come up with your own testing strategy!
 
 ---
 

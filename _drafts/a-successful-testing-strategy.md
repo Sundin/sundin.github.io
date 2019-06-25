@@ -5,15 +5,14 @@ date_placeholder: 0
 categories: 
 ---
 
-Today we will a closer look at the testing pyramid and see how we can transform that into a concrete strategy for how to write your tests. While the terminology I use is not exactly the same as the one used by Mike Cohn in the original testing pyramid, the core concepts remain the same – a strong foundation of unit tests, complemented with a sufficient number of component tests and sprinkled with a few end-to-end tests as a last line of defense.
+Today we will a closer look at the classic [testing pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) and see how we can transform that into a concrete strategy for how to write your tests. While the terminology I use is not exactly the same as the one used by [Mike Cohn](https://en.wikipedia.org/wiki/Mike_Cohn) when he first described the testing pyramid in his book [Succeeding with Agile](https://www.mountaingoatsoftware.com/books/succeeding-with-agile-software-development-using-scrum), the core concepts remain the same – a strong foundation of unit tests, complemented with a sufficient number of component tests (which are similar to Cohn's service tests) and sprinkled with a few end-to-end tests (which are called UI tests by Cohn) as a last line of defense.
 
 
-## Types of tests
-
-Here is the terminology I prefer to use. The concepts can sometimes be overlapping and confusing, but the important thing to keep in mind is to get a rough feeling of how testing can be carried out on different abstraction levels. 
+## Different types of tests
+The concepts used when talking about abouted testing can sometimes be overlapping and confusing, so it can be useful to come up with a shared definition to use within your team. Below I will share the terminology that I prefer to use, but feel free to disagree as there is no real consensus within the industry around this concepts.
 
 ### Unit tests
-Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, corner cases, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
+Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, corner cases, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop. Ideally, your unit test suite should run on every code change and therefore it has to be really fast. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as mocking and dependency injection.
 
 Some examples of different kinds of unit tests:
   - Backend logic tests with a mocked database.
@@ -34,7 +33,7 @@ Some examples of different kinds of contract tests:
   - [Pacts](https://docs.pact.io/) between consumer and provider.
 
 ### End-to-end (E2E) tests
-As a last resort, you might have to rely on end-to-end (E2E) tests, sometimes also called integration tests. These are tests that tests a real-life scenario, throughout the whole call stack, and without any mocks at all. While these can sometimes be valuable, you should always strive to catch as many problems as you can much earlier in the testing cycle. The reason is that it will be difficult to pinpoint the error if a tests fails, and also that any test that relies on actual network requests will often be severely lacking in the reproducibility aspect. So therefore you should have at most a handful of E2E tests, perhaps something like a simple [sanity check](https://en.wikipedia.org/wiki/Sanity_check#Software_development) just before deploying to production.
+As a last resort, you might have to rely on end-to-end (E2E) tests. These are tests that tests a real-life scenario, throughout the whole call stack, and without any mocks at all. While these can sometimes be valuable, you should always strive to catch as many problems as you can much earlier in the testing cycle. The reason is that it will be difficult to pinpoint the error if a tests fails, and also that any test that relies on actual network requests will often be severely lacking in the reproducibility aspect. So therefore you should have at most a handful of E2E tests, perhaps something like a simple [sanity check](https://en.wikipedia.org/wiki/Sanity_check#Software_development) just before deploying to production.
 
 Some examples of different kinds of E2E tests:
   - Manual [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)).
@@ -48,6 +47,8 @@ The official [Cypress documentation](https://docs.cypress.io/guides/guides/netwo
 
 ## Summary
 Whether you agree with my opinion on different types of tests or not, I always think it is a good idea to discuss such matters with your fellow team members and agree upon a written-down testing strategy to follow. This will both make it easier for you as a team to prioritize automated testing and make onboarding of new team members easier. Feel free to use the above as a starting point or come up with your own testing strategy!
+
+Once you have the core definitions in place, you can continue to enhance your team's testing strategy by summarizing important general guidelines and useful best practices. I will write more on this topic in my next post so stay tuned!
 
 ---
 

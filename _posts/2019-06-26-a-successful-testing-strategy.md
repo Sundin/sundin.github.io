@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "A Successful Testing Strategy"
-date_placeholder: 0
-categories: 
+date: 2019-06-26 13:00:07 +0200
+categories: Testing
 ---
 
 Today we will a closer look at the classic [testing pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) and see how we can transform that into a concrete strategy for how to write your tests. While the terminology I use is not exactly the same as the one used by [Mike Cohn](https://en.wikipedia.org/wiki/Mike_Cohn) when he first described the testing pyramid in his book [Succeeding with Agile](https://www.mountaingoatsoftware.com/books/succeeding-with-agile-software-development-using-scrum), the core concepts remain the same – a strong foundation of unit tests, complemented with a sufficient number of component tests (which are similar to Cohn's service tests) and sprinkled with a few end-to-end tests (which are called UI tests by Cohn) as a last line of defense.

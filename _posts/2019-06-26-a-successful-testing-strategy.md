@@ -23,7 +23,7 @@ Some examples of different kinds of unit tests:
 In order to test an entire component in isolation to all other components, we use something called component tests. You have to decide for yourself what your definition of a component should be, but in a microservice architecture each individual service will typically be considered its own component. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests, which according to my experience are usually more closely coupled with implemention details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
 
 Some examples of different kinds of component tests:
-  - Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database]({{ site.baseurl }}{% post_url 2018-09-28-dockerized-db-tests %})).
+  - Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database]({{ site.baseurl }}{% post_url 2019-03-29-dockerized-db-tests %})).
   - [Cypress](https://www.cypress.io/) tests with mocked backend calls.
 
 ### Contract tests

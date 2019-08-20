@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Ethics of Software Engineering"
-date_placeholder: 0
+date_placeholder: 2019-08-20 09:40:07 +0200
 categories: Mindset
 ---
 

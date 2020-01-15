@@ -4,13 +4,13 @@ This blog was created using [Jekyll](https://jekyllrb.com/) and can be read at [
 
 ## Requirements
 
-**Ruby 2.6.3** (using RVM is recommended).
+**Ruby 2.7.0** (using RVM is recommended).
 
 Instructions for installing Ruby with RVM:
 
     \curl -sSL https://get.rvm.io | bash -s stable
-    rvm install 2.6.3
-    rvm --default use 2.6.3
+    rvm install 2.7.0
+    rvm alias create default 2.7.0
 
 **Jekyll**:
 

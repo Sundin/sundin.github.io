@@ -5,7 +5,7 @@ date_placeholder: 0
 categories: Architecture
 ---
 
-A common challenge in software development is how to come up with non-functional requirements, such as the maximum response times of your API.
+A common challenge in software development is how to come up with and meet non-functional requirements, such as the maximum response times of your API.
 
 Two NFRs to consider is the average response time of a certain endpoint, as well as the percentage of outlier requests that will fall outside of the accepted time bounds. Such outliers will always be there, especially when designing a microservice architecture using lambdas with their dreaded cold starts which is common these days.
 
@@ -20,7 +20,7 @@ The most obvious and flexible, but also potentially complex, solution is to make
 
 ### Async-like behaviour
 
-A middle way is to make the operation seem like an asynchronous one to the user. This is achieved by making sure that the initial request is answered as quickly as possible, with the response simply containing an operation ID of the actual operation to be carried out. This ID can be used by the client to check on the status of its request, which the services has put on a queue for processing. This pattern is useful for heavy operation that takes a long time to complete, or when the operation is dependent on upstream services with unpredictable availability.
+A middle way is to make the operation seem like an asynchronous one to the user. This is achieved by making sure that the initial request is answered as quickly as possible, with the response simply containing an operation ID of the actual operation to be carried out. This ID can be used by the client to check on the status of its request or to sign up for notifications regarding it. Meanwhile, the service puts the request on a queue for processing. This pattern is useful for heavy operation that takes a long time to complete, or when the operation is dependent on upstream services with unpredictable availability.
 
 
 ### Optimistic rendering

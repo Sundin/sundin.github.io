@@ -28,4 +28,4 @@ This post was inspired by [How to read Kafka: part I](https://www.newcriterion.c
 
 ---
 
-*Did I make a mistake? Please feel free to correct me by [issuing a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*
+*Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

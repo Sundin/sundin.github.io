@@ -26,4 +26,4 @@ Means can also be taken to hide actual response times from the end user. Instead
 
 ---
 
-*Did I make a mistake? Please feel free to correct me by [issuing a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*
+*Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

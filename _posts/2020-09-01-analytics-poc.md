@@ -88,4 +88,4 @@ User behaviour analytics can be collected anonymously without the need for any b
 
 ---
 
-*Did I make a mistake? Please feel free to correct me by [issuing a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*
+*Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

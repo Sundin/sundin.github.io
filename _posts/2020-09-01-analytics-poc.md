@@ -15,9 +15,9 @@ For the above reasons, you should at least consider implementing your own analyt
 
 As a proof of concept, we implemented a quick demonstration in React. The React application that we made will gather analytics data about the very same website that is used to display the gathered data. Disclaimer: the solution we came up with is heavily inspired by [a great blog post by P.C. Maffey](https://www.pcmaffey.com/roll-your-own-analytics/).
 
-Live demo: http://devies-analytics-poc.s3-website-eu-west-1.amazonaws.com/
+Live demo: [http://devies-analytics-poc.s3-website-eu-west-1.amazonaws.com/](http://devies-analytics-poc.s3-website-eu-west-1.amazonaws.com/)
 
-Source code: https://github.com/DeviesDevelopment/analytics-poc
+Source code: [https://github.com/DeviesDevelopment/analytics-poc](https://github.com/DeviesDevelopment/analytics-poc)
 
 ### Overview
 
@@ -81,7 +81,7 @@ User behaviour analytics can be collected anonymously without the need for any b
 
 ## References
 
-* The original idea and some of the implementation taken from [this blog post](ttps://www.pcmaffey.com/roll-your-own-analytics/).
+* The original idea and some of the implementation taken from [this blog post](https://www.pcmaffey.com/roll-your-own-analytics/).
 
 * The [Wikipedia article on web analytics](https://en.wikipedia.org/wiki/Web_analytics) contains much background information about this topic.
 

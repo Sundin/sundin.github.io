@@ -21,7 +21,7 @@ Source code: [https://github.com/DeviesDevelopment/analytics-poc](https://github
 
 ### Overview
 
-The data we are interested in is to count the number of **sessions** on our website. For each session we are also interested in knowing which pages were visited, in which order and how long the user stayed on each page. A session therefore consists of a number of **events**, were every page change is considered a new event. We decided to only store non-sensitive user data, meaning no IP addresses or other data that can be used to identify the user behind a specific session. We also decided not to use any cookies in the user's browser to detect whether it's a new or returning visitor.
+The data we are interested in is to count the number of **sessions** on our website. For each session we are also interested in knowing which pages were visited, in which order and how long the user stayed on each page. A session therefore consists of a number of **events**, where every page change is considered a new event. We decided to only store non-sensitive user data, meaning no IP addresses or other data that can be used to identify the user behind a specific session. We also decided not to use any cookies in the user's browser to detect whether it's a new or returning visitor.
 
 ### How it works
 
@@ -63,7 +63,7 @@ Some workarounds have had to be added to handle various browsers as well, see [t
 
 ### Backend
 
-Our backend is hosted on AWS and set up using CloudFormation and Serverless. It is very minimal, containing only an API Gateway as interface, a DynamoDB database for storing the gathered user analytics data and two lambda functions; one for saving data and one for retrieving data. You can browse the template file [here](https://github.com/DeviesDevelopment/analytics-poc/blob/master/backend/template.yml).
+Our backend is hosted on AWS and set up using CloudFormation and AWS SAM. It is very minimal, containing only an API Gateway as interface, a DynamoDB database for storing the gathered user analytics data and two lambda functions; one for saving data and one for retrieving data. You can browse the template file [here](https://github.com/DeviesDevelopment/analytics-poc/blob/master/backend/template.yml).
 
 ## Next steps
 

@@ -74,10 +74,13 @@ First of all, you should consider what it is that you really want to know about 
 * Aggregate other kinds of metrics. See [this list on Wikipedia](https://en.wikipedia.org/wiki/Web_analytics#On-site_web_analytics_-_definitions) for some inspiration.
 * Different browsers sometimes behaves very differently, so more work is needed to make sure we handle all possible combinations of devices and browsers properly.
 * If you use some other implementation than React, this solution should be straightforward to reuse. Here is [an implementation in Vue](https://github.com/Sundin/armory-online/blob/master/src/components/Analytics.vue).
+* Implement some check to filter out bots and scrapers, as you are probably only interested in the behaviour of real human users.
 
 ## Takeaways
 
 User behaviour analytics can be collected anonymously without the need for any big tool or framework. The upside of this approach is that you don't need to bloat down your application with any heavy third-party dependencies, and also that you will maintain control of your users' data. The only downside is of course that you need to implement the interface for aggregating and displaying the collected data yourself.
+
+While this proof-of-concept shows that is relatively easy to set up your own analytics infrastructure, there are proabably countless number of corner cases that we did not consider. In a real-life production application, the golden middle way would therefore probably be to choose a self-hosted, open-source analytics tool instead. Some of the alternatives include [Open Web Analytics](http://www.openwebanalytics.com/), [Matomo](https://matomo.org/matomo-on-premise/) and [Countly](https://count.ly/community-edition).
 
 ## References
 

@@ -5,7 +5,7 @@ date_placeholder: 2020-09-01 09:03:57 02:00
 categories: Implementation
 ---
 
-Finding out how much traffic your site has and how your users interact with it is always crucial. Such information will enable you to scale your backend properly, finetune the user experience and weed out unused features. Some even go so far as claiming that data is the "gold of our time". Regardless of the truth of that claim, few can dispute the usefulness of user analytics data.
+Finding out how much traffic your site has and how your users interact with it is always crucial. Such information will enable you to scale your backend properly, fine-tune the user experience and weed out unused features. Some even go so far as claiming that data is the "gold of our time". Regardless of the truth of that claim, few can dispute the usefulness of user analytics data.
 
 The go-to solution for most developers is to use Google Analytics (in fact used by [55% of all websites](https://w3techs.com/technologies/details/ta-googleanalytics)) or some other third party framework. Although this can surely be a valid choice and a quick way forward, using a third party tool to handle user analytics data raises some concerns. First of all, you give away data about how your product is being used for free (or perhaps you even pay for it!). And more importantly, it makes it harder for you to guarantee that potentially sensitive user data is handled in an anonymous and secure way. The best way to guarantee that your data is in safe hands is to let as few hands as possible get in touch with the data.
 
@@ -80,7 +80,7 @@ First of all, you should consider what it is that you really want to know about 
 
 User behaviour analytics can be collected anonymously without the need for any big tool or framework. The upside of this approach is that you don't need to bloat down your application with any heavy third-party dependencies, and also that you will maintain control of your users' data. The only downside is of course that you need to implement the interface for aggregating and displaying the collected data yourself.
 
-While this proof-of-concept shows that is relatively easy to set up your own analytics infrastructure, there are proabably countless number of corner cases that we did not consider. In a real-life production application, the golden middle way would therefore probably be to choose a self-hosted, open-source analytics tool instead. That way you stay in control of the data, while still not having to fix all the bugs on your own. Some of the alternatives include [Open Web Analytics](http://www.openwebanalytics.com/), [Matomo](https://matomo.org/matomo-on-premise/) and [Countly](https://count.ly/community-edition).
+While this proof-of-concept shows that is relatively easy to set up your own analytics infrastructure, there are probably countless number of corner cases that we did not consider. In a real-life production application, the golden middle way would therefore probably be to choose a self-hosted, open-source analytics tool instead. That way you stay in control of the data, while still not having to fix all the bugs on your own. Some of the alternatives include [Open Web Analytics](http://www.openwebanalytics.com/), [Matomo](https://matomo.org/matomo-on-premise/) and [Countly](https://count.ly/community-edition).
 
 ## References
 

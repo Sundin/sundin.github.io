@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Read"
+title: "How I Read a Book"
 date: 2020-10-14 11:28:50 +0200
 categories: Learning
 ---
@@ -11,7 +11,7 @@ This is how I read a book.
 
 ## What to read
 
-This might sound like an obviously important topic, but don't worry too much about *what* to read. As long as you keep the Lindy Effect (see below) in mind, you will most likely get something out of just about everything you read. And the best part is that the more you read, the more you will get out of every book. This is because you will be able to draw parallels and connections to what you have read before, realize which ideas contradict or support each other, understand where someone's idea is coming from and so on.
+This might sound like an obviously important topic, but don't worry too much about *what* to read. As long as you keep the Lindy Effect (see below) in mind, you will most likely get something out of just about everything you read. And the best part is that the more you read, the more you will get out of every book. This is because you will be able to draw parallels and connections to what you have read before, realize which ideas contradict or support each other, understand where someone's idea is coming from and so on. I usually read 2-4 books in parallel. That way, I know I can always pick up something suitable to read regardless if my energy level is high or low.
 
 ### The Lindy Effect
 
@@ -41,7 +41,7 @@ Write down words and concepts you don't fully understand. If you still get the g
 
 ### Summarize
 
-After you have finished a book, I believe it is important to process what you have just read if you want to actually remember something and maybe even to draw some additional conclusions of your own. The method for doing this is to go through all your underlinings and notes from the previous step and summarize these in your own words. To faciliate this process, I have set up a personal wiki where I collect all my notes on stuff that I have read (this is sometimes referred to as a [commonplace](https://en.wikipedia.org/wiki/Commonplace_book)). I like the wiki format, because it enables me to cross-reference between different books and authors, but to be honest, the actual format does not matter at all. Your favourite text editor or plain old pen and paper works just as fine.
+After you have finished a book, I believe it is important to process what you have just read if you want to actually remember something and maybe even to draw some additional conclusions of your own. The method for doing this is to go through all your underlinings and notes from the previous step and summarize these in your own words. To faciliate this process, I have set up a personal wiki where I collect all my notes on stuff that I have read (this is sometimes referred to as a [commonplace](https://en.wikipedia.org/wiki/Commonplace_book)). I like the wiki format, because it enables me to cross-reference between different books and authors, but to be honest, the actual format does not matter at all. Your favourite text editor or plain old pen and paper works just as fine. For me, taking physical notes and then summarizing on the computer works best. The fact that I have to re-write everything while I digitilize my summary means that I get an extra mental processing of the book's highlights for free.
 
 ### Spaced repetition
 

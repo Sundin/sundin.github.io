@@ -2,7 +2,7 @@
 layout: post
 title: "DNS Record Types"
 date: 2020-11-11 14:28:20 +0100
-categories: 
+categories: DNS
 ---
 
 In this blog post I will briefly explain some of the most common [DNS record types](https://en.wikipedia.org/wiki/List_of_DNS_record_types).

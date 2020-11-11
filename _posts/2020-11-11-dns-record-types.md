@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DNS Record Types"
-date_placeholder: 0
+date: 2020-11-11 14:28:20 +0100
 categories: 
 ---
 

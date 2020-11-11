@@ -91,4 +91,6 @@ While this proof-of-concept shows that is relatively easy to set up your own ana
 
 ---
 
+Follow me with [RSS](https://sundin.github.io/feed.xml).
+
 *Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

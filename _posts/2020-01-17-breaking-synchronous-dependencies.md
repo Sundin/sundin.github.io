@@ -26,4 +26,6 @@ Means can also be taken to hide actual response times from the end user. Instead
 
 ---
 
+Follow me with [RSS](https://sundin.github.io/feed.xml).
+
 *Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

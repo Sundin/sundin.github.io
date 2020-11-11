@@ -22,4 +22,6 @@ While you might not need to go all the way for 100% code coverage in your tests,
 
 ---
 
+Follow me with [RSS](https://sundin.github.io/feed.xml).
+
 *Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*

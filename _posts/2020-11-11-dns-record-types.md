@@ -13,7 +13,7 @@ In this blog post I will briefly explain some of the most common [DNS record typ
 * **ALIAS** record: this record type is specific to AWS Route53 only. It is used in much the same way as a CNAME record, with the addition that you can also create it in your zone apex or point it directly at an AWS resource (such as an ALB, an EC2 instance or an S3 bucket). If you point it directly at an AWS resource, then you will not have to worry about setting up a static IP address for your resource, as AWS will keep track of when the IP changes for you.
 * **NS** (name servers) record: created in the superdomain (`example.org`) to point out the name servers of the subdomain (`sub.example.org`).
 * **SOA** (start of authority): contains required metadata about the DNS zone and its name servers.
-* **MX** (mail exchange) record: used to set up a mail server.
+* **MX** (mail exchange) record: canonical name record for a mail server.
 
 
 ---

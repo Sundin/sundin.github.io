@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Migrating data between DynamoDB tables"
-date_placeholder: 0
+date: 2021-03-30 10:34:41 +0200
 categories: Implementation Refactoring
 ---
 When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the [official AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-general-nosql-design.html) states that *“you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”*, you often need to experiment to be able to discover what those questions are. Luckily there is an easy approach for how to migrate to a new key schema that we will describe in this blog post.

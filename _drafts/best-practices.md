@@ -15,6 +15,12 @@ categories:
 * Don't obfuscate error messages.
 
 
+## Java
+* Use checked exceptions.
+* Don't use Manager classes. Put logic inside the objects themselves.
+* Create explicit 
+* Use [pojo-tester](https://www.pojo.pl/)?
+
 ## Lambdas
 * The downside of lambdas are their coldstart times. It's not a silver bullet for every use case.
 

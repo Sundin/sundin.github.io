@@ -13,7 +13,7 @@ categories:
 * If you have dependencies on other teams, prefer using one of their more stable environments.
 * Always catch and handle potential errors.
 * Don't obfuscate error messages.
-
+* Structure of the repository should mirror what the user sees in the application. This makes it easier to find the right place where do perform a given change. Do not structure your files depending on the file type. Structure on the purpose of that file instead.
 
 ## Java
 * Use checked exceptions.

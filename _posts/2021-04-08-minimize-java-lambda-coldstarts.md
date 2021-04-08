@@ -11,6 +11,8 @@ The problem with cold starts arises when there are no "warm" lambda available to
 
 In practice, this means that the issue with cold starts will become much less problematic the more traffic your service gets, especially if the traffic is somewhat evenly distributed across time. For an endpoint with frequent traffic, a few cold starts here and there will probably not impact your P99 latency in a significant way. That being said, if your use case does not allow for a few requests in a while getting response times of at least a couple of seconds or more, then you should probably not use Java at all.
 
+## Minimizing cold start times
+
 Assuming you are fine with some cold starts with noticable delays, what can be done in order to minimize the time these cold starts consume as much as possible? Here is a list of things to do to minimize the cold starts for your serverless application.
 
 ### Increase runtime memory

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Minimize Java Lambda Cold Start Times"
-date_placeholder: 0
+date: 2021-04-08 09:25:58 +0200
 categories: Implementation AWS
 ---
 

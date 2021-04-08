@@ -1,60 +1,43 @@
 ---
 layout: post
-title: "Minimize Java Lambda Coldstart Times"
+title: "Minimize Java Lambda Cold Start Times"
 date_placeholder: 0
-categories: Implementation
+categories: Implementation AWS
 ---
 
+If you have ever run Java inside a lambda function on AWS, you will have noticed the quite significant cold start times that comes with spinning up the JVM environment. In this post, I will discuss some different tricks you can use to minimize these cold start times.
 
+The problem with cold starts arises when there are no "warm" lambda available to handle an incoming request, which usally happens whenever an endpoint experiences a large and sudden spike in traffic. The most commonly occuring scenario when this happens is probably when an endpoint goes from no traffic at all in a while (and thus having no warm lambdas ready) to suddenly having one or more incoming requests to serve.
 
-Here is a list of things to do to minimize the coldstarts for your serverless application.
+In practice, this means that the issue with cold starts will become much less problematic the more traffic your service gets, especially if the traffic is somewhat evenly distributed across time. For an endpoint with frequent traffic, a few cold starts here and there will probably not impact your P99 latency in a significant way. That being said, if your use case does not allow for a few requests in a while getting response times of at least a couple of seconds or more, then you should probably not use Java at all.
 
-The three biggest contributors to cold starts.
+Assuming you are fine with some cold starts with noticable delays, what can be done in order to minimize the time these cold starts consume as much as possible? Here is a list of things to do to minimize the cold starts for your serverless application.
 
-    Size of deployment package. Regardless of language the deployment package needs to be downloaded and extracted. In case of Java it also needs to be class loaded.
-    Memory size of your runtime. The runtime is not only memory size but also how much minimum dedicated CPU you get for your function. Class loading is all about CPU.
-    VPC Deployment. Creating Elastic Network Interfaces for your lambda takes time
+### Increase runtime memory
 
-Here is an action list specific to Java.
+The more memory you assign to your lambda function, the faster it will spin up because it also gets access to more CPU power. Note that increasing the memory size will often in fact result in a _lower_ runtime cost (since the cost is calculated as function execution time times available memory). There's a sweet spot at 1,5GB according to [this article](https://github.com/alexcasalboni/aws-lambda-power-tuning) from 2020.
 
-    Reduce number of dependencies. 
-        Always just depend on the exact part of the AWS SDK that you actually need.
-        Never ever use Spring or any part of Spring in your lambda. It's too big and you don't need it.
-        Lean towards using Java native functions instead of bringing in Apache commons (for example, use the native Java 11 HTTP client instead of Apache).
-        Don't build or use cusom libs full of "good to have things". IF you share something as a lib always make sure that all if it is used if anything is used.
-        When building a lambda function always think "what else can I remove". Never think "I like this framework". Less is more! 
-        Try to replace AWS v1 clients with their v2 counterparts.
-    Reduce bundle size
-        Get rid of unused dependencies (see above).
-        Get rid of unreferenced classed using Proguard.
-    Statics and member
-        Instantiating clients etc is faster during setup (static member or in constructor).
-        BUT! if you have a if clause that sends an SNS only conditionally when something happens, it might be a better solution to wait with creating that SNS client until we know that it is really needed.
-    Loading remote resources.
-        Minimize loading of remote resources and only do it when needed.
-        Config should be defined close to the function. 
-            Use environment variables or Parameter Store and read only once during lifetime of function.
-            Minimize or remove usage of Remote frequently loaded config. There might be use cases for it then you should consider get when needed and only exactly needed config.
-    AWS runtime memory size.
-        The more memory you assign to your lambda function, the faster it will spin up because it also gets access to more CPU power.
-        Note that increasing the memory size will often result in a lower runtime cost (since it is calculated as function execution time times available memory). There's a sweet spot at 1,5GB according to this article from 2020.
+### Reduce application size
 
+The more classes you squeeze into your application, the longer it will take to initialize. I wouldn't say that you should go so far as to avoid introducing new classes to your codebase wherever it makes the code more readable and maintainable, but there are two other approaches you should follow which gives a much larger payoff:
 
+- Get rid of unneccessary dependencies. Lean towards using Java native functions instead of bringing in Apache commons (for example, use the native Java 11 HTTP client instead of Apache). Try to replace AWS v1 clients with their v2 counterparts. Less is faster.
+- Get rid of unreferenced classed using [Proguard](https://github.com/Guardsquare/proguard).
 
+### Leverage boosted CPU access
 
+During the initialization phase, AWS actually gives you access to much more CPU power than the capped limit you will have during your normal lambda execution. You can leverage this by initilizing heavy-to-load clients (such as any AWS clients) in the constructor or as static variables, so that they will be initilized when the lambda has access to the boosted CPU power. This holds whenever you have to initialize clients that will be needed during most lambda executions. On the other hand, if you have clients that will normally not be used except for a few corner cases, it could make more sense to only initilize them when they are actually needed. You will have to use your common sense here.
 
+### Run lambdas outside of VPC
 
+Launching a lambda function inside a VPC adds a lot of time to your cold starts. Therefore you should investigate if you can have an architecture where you do not need to have your lambdas running inside a VPC.
 
-Some comments regarding Java lambdas. First of all check  https://youtu.be/ddg1u5HLwg8  for a lot of detailed information on how to reduce coldstart times.
+## Conlusion
 
-Regarding 2. doing initialization when something actually is needed i.e. from your handler method actually one important drawback. Lambdas run a capped vCPU where the speed depends on your memory setting. the higher the memory you set the faster vCPU you also get. This is true for the execution of the handler method but during initializing of your lambda class (constructor and static initialization) the lambda runtime will give you a none capped vCPU. So doing initialization in the constructor that initialization will actually be faster. The point of only initializating what is needed is somewhat valid but your lambda will probably run for at least a couple of hours and if everything that needs initialization is most likely used during those hours it makes sense to do all of the initialization during startup.
-
-Regarding 4. I think you need to measure it's impossible to set a fixed number like that since it depends on your code, requirements ond so on. If it doesn't matter if the average execution times goes up from 30 to 80 ms as an example you might save a lot of lambda execution cost by lowering your memory allocation. There is actually a tool that can help you decide on the optimal memory configuration: https://github.com/alexcasalboni/aws-lambda-power-tuning I have not had time to try it out yet.
-
-
+As described in this blog post, there are a few methods that can be used in order to minimize the cold start times for your Java lambdas. For more details, have a look at [this great talk](https://youtu.be/ddg1u5HLwg8) from re:Invent. However, you will not be able to get rid of the cold start times completely this way. If you are running a performance critical service, you should instead consider switching to another programming language than Java (i.e. Node.js, Go or Python) or another hosting method than AWS Lambda (i.e. containerized application).
 
 ---
 
 Follow me with [RSS](https://sundin.github.io/feed.xml).
 
-*Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*
+_Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io)._

@@ -2,9 +2,10 @@
 layout: post
 title: "Migrating data between DynamoDB tables"
 date: 2021-03-30 10:34:41 +0200
-categories: Implementation Refactoring
+categories: Implementation Refactoring AWS
 ---
-When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the [official AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-general-nosql-design.html) states that *“you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”*, you often need to experiment to be able to discover what those questions are. Luckily there is an easy approach for how to migrate to a new key schema that we will describe in this blog post.
+
+When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the [official AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-general-nosql-design.html) states that _“you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”_, you often need to experiment to be able to discover what those questions are. Luckily there is an easy approach for how to migrate to a new key schema that we will describe in this blog post.
 
 In short, the process looks like this:
 
@@ -19,12 +20,11 @@ Changing key schemas is not the only use case for this method. The same approach
 
 This blog post also comes with a [companion example repo](https://github.com/DeviesDevelopment/dynamodb-migration).
 
-*Note that if you’re simply looking for replicating a table over multiple regions, you should have a look at [DynamoDB Global Tables](https://aws.amazon.com/dynamodb/global-tables/) instead.*
+_Note that if you’re simply looking for replicating a table over multiple regions, you should have a look at [DynamoDB Global Tables](https://aws.amazon.com/dynamodb/global-tables/) instead._
 
 ## Create target table
 
 Before we begin with the actual migration, the target table needs to be in place. Create this table as you normally would, using CloudFormation or elsewise.
-
 
 ## Synchronize changes using DynamoDB Streams
 
@@ -40,7 +40,6 @@ An alternative to using DynamoDB Streams is to use [AWS Data Pipeline](https://a
 
 Now that we have our stream in place, we can be certain that any changes in the original table will be propagated to the target table. We can also leverage the same stream to migrate all the existing data as well. This is as simple as writing a script that makes some update to every item in the original table, meaning that every item will also end up on the DynamoDB stream. This could be as easy as adding some property (such as the “migrate” property in our [example](https://github.com/DeviesDevelopment/dynamodb-migration)), which is trimmed off in the Lambda function before the item is written to the target table.
 
-
 ## Update code to read from target table
 
 At this point we are certain that every item in the original table has been written to the target table, and that any new changes are propagated to the target table. The next step is to update application code to actually read from the target table. There is no need to change all application code at once since both original and target tables will contain the same data (note that there might be a short delay until any written data is available in the target table).
@@ -52,10 +51,10 @@ The next step is to update application code so that it writes to the target tabl
 
 Once all application code is updated to write to the target table, the original table is not used anymore and can be deleted. Before doing so, it could be a good idea to monitor the read and write capacity metrics for a while to make sure you haven’t missed anything.
 
-The approach described in this blog post is a safe and relatively easy way to migrate data between DynamoDB tables. Thus, it’s not completely true that *“you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”*. On the contrary, it is actually quite straightforward to make changes to an existing key schema, as long as you do it in a controlled manner. This allows for experimentation and iterative development in any DynamoDB-backed application.
+The approach described in this blog post is a safe and relatively easy way to migrate data between DynamoDB tables. Thus, it’s not completely true that _“you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”_. On the contrary, it is actually quite straightforward to make changes to an existing key schema, as long as you do it in a controlled manner. This allows for experimentation and iterative development in any DynamoDB-backed application.
 
 ---
 
 Follow me with [RSS](https://sundin.github.io/feed.xml).
 
-*Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io).*
+_Did I make a mistake? Please feel free to [issue a pull request to my Github repo](https://github.com/Sundin/sundin.github.io)._

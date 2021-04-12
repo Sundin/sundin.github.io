@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Avoid using else statements"
-date_placeholder: 2020-08-17 09:34:11 +0200
+date_placeholder: 2021-04-11 09:34:11 +0200
 categories:
 ---
 
@@ -19,7 +19,9 @@ function myFunction(myVar) {
 }
 ```
 
-We can simplify it in order to get rid of the else clause:
+However, the above implementation contains two distinct paths that both need to be tested separately.
+
+We can simplify the function in order to get rid of the else clause:
 
 ```javascript
 function myFunction(myVar) {
@@ -33,6 +35,8 @@ function myFunction(myVar) {
   });
 }
 ```
+
+Or better still, get rid of all conditional statements altogether. With the implementation below, the function will always follow the same code path, regardless if we pass it a string or an array to begin with.
 
 ```javascript
 function myFunction(myVar) {

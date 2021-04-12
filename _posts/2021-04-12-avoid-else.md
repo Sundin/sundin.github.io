@@ -2,7 +2,7 @@
 layout: post
 title: "Avoid using else statements"
 date_placeholder: 2021-04-11 09:34:11 +0200
-categories:
+categories: Patterns Refactoring
 ---
 
 Let's take a simple example from the world of JavaScript, where we can't be certain of the type of a variable up front. Let's say we have a function (`myFunction`) which we can either pass a string or an array of strings. If we pass it a string, we want to do something with that string. If we pass it an array, we want to do the same thing for each element in the array.

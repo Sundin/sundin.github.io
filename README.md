@@ -1,51 +1,52 @@
-# My Awesome Blog
+# Master of Software Engineering
 
-This blog was created using [Jekyll](https://jekyllrb.com/) and can be read at [sundin.github.io](https://sundin.github.io/).
+This is my blog.
 
-## Requirements
+## Running locally
 
-**Ruby 2.7.0** (using RVM is recommended).
+    hugo server
 
-Instructions for installing Ruby with RVM:
+The site is now running at `http://localhost:1313`.
 
-    \curl -sSL https://get.rvm.io | bash -s stable
-    rvm install 2.7.0
-    rvm alias create default 2.7.0
+## Installation
 
-**Jekyll**:
+Install hugo using homebrew:
 
-    gem install bundler jekyll
+    brew install hugo
 
-## Setup
-Install gems with:
+Get submodules:
 
-    bundle install
+    git submodule init
+    git submodule update
 
-## Running locally 
-    bundle exec jekyll serve
+## Usage
 
-The site is now running at `http://localhost:4000`. Refresh the page in your browser to see changes.
+Create a new blog post draft:
 
-## Drafts
-Drafts are posts without a date in the filename. They’re posts you’re still working on and don’t want to publish yet.
+    hugo new _drafts_/my-first-post.md
 
-Create a new draft with the following command:
+Start server with drafts enabled:
 
-    ./new-draft.sh <post-title>
+    hugo server -D
 
-When you are happy with your post, move it to the `_posts` folder with the following command:
+## Internal Links
 
-    ./publish-post.sh <post-title>
+To link to another post on the blog:
 
-To preview your site with drafts, simply run: 
+    [some link text]({{< relref "some-post.md" >}})
 
-    bundle exec jekyll serve --drafts
+Or (assuming the posts are in the same folder):
 
-Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
+    [some link text](../some-post)
 
-## Categories
-You can list multiple categories for a single post by simply separating them with a space.
+## Images
 
-## TODO
+This links to an image in the same folder as the blog post:
 
-* Spell-checking.
+    ![Image caption](../image.png)
+
+## Add theme or other module
+
+    cd themes
+
+    git submodule add https://github.com/vimux/mainroad

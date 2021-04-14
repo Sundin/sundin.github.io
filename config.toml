@@ -1,0 +1,46 @@
+baseurl = ""
+disablePathToLower = true
+title = "Master of Software Engineering"
+languageCode = "en-us"
+paginate = "10" # Number of posts per page
+theme = "mainroad"
+
+[Author] # Used in authorbox
+  name = "Gustav Sundin"
+  bio = "My name is Gustav Sundin and I currently work as software engineering consultant at Devies in Gothenburg, Sweden. I also hold a Master’s degree in Software Engineering from Chalmers University. A cool thing with that is that I am allowed to titulate myself “Master of Software Engineering”!"
+  #avatar = "img/avatar.png"
+
+[Params]
+  description = "Gustav Sundin's personal blog on software engineering" # Site description. Used in meta description
+  copyright = "Gustav Sundin" # Footer copyright holder, otherwise will use site title
+  readmore = true # Show "Read more" button in list if true
+  authorbox = true # Show authorbox at bottom of pages if true
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+  post_meta = ["author", "date", "categories"] # Order of post meta information
+  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "2006-01-02" # Change the format of dates
+
+[Params.style.vars]
+  highlightColor = "#e22d30" # Override highlight color
+
+  # Override font-family sets. Secondary font-family set responsible for pre, code, kbd, and samp tags font
+  # Take care of different quotes OR escaping symbols in these params if necessary
+  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+
+[Params.logo]
+  #image = "img/placeholder.png" # Logo image. Path relative to "static"
+  title = "Master of Software Engineering" # Logo title, otherwise will use site title
+  #subtitle = "Just another site" # Logo subtitle
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = "right" # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["ddg-search", "recent", "categories", "taglist"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  categories_counter = true # Enable counter for each category in "Categories" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget

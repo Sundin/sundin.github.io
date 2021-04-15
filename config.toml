@@ -17,7 +17,7 @@ theme = "mainroad"
   authorbox = true # Show authorbox at bottom of pages if true
   pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
   post_meta = ["author", "date", "categories"] # Order of post meta information
-  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  mainSections = ["posts", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "2006-01-02" # Change the format of dates
 
 [Params.style.vars]
@@ -38,7 +38,7 @@ theme = "mainroad"
   list = "right"  # Configure layout for list pages
   single = "right" # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["recent", "categories", "taglist"]
+  widgets = ["recent", "categories", "taglist", "social"]
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
@@ -48,3 +48,20 @@ theme = "mainroad"
 [outputFormats.RSS]
   mediatype = "application/rss"
   baseName = "feed"
+
+[Params.widgets.social]
+  github = "Sundin"
+  email = "gustav@devies.se"
+
+[[Params.widgets.social.custom]]
+  title = "Stack Overflow"
+  url = "https://stackoverflow.com/users/948942/incinerator"
+  icon = "svg/category.svg" # Optional. Path relative to "layouts/partials"
+
+[[Params.widgets.social.custom]]
+  title = "About Me"
+  url = "/welcome"
+  icon = "svg/author.svg"
+
+[permalinks]
+  posts = "/:slug/"

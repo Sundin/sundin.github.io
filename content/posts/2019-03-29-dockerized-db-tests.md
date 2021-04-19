@@ -3,6 +3,7 @@ categories:
   - Testing
 date: "2019-03-29T11:11:30Z"
 title: Dockerized database testing
+slug: dockerized-db-tests
 ---
 
 In this post I am going to give you an overview of different approaches to use when unit testing your backend code and database calls.

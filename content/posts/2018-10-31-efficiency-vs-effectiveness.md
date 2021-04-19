@@ -4,6 +4,7 @@ categories:
   - Mindset
 date: "2018-10-31T13:05:15Z"
 title: Efficiency vs Effectiveness
+slug: efficiency-vs-effectiveness
 ---
 
 In Swedish, "efficiency" and "effectiveness" are both translated into the same word. With Swedish being my mother tongue, this leads me to sometimes mixing these terms up. This article describes the difference between the two concepts, and why both are important to understand.

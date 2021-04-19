@@ -5,13 +5,11 @@ date: "2019-08-07T00:00:00Z"
 title: "Testing: Best Practices"
 ---
 
-In this post I will describe a number of best practices I find useful to keep in mind when writing tests. It is intended to act as a complement to my previous post, [A successful testing strategy]({{ site.baseurl }}{% post_url 2019-06-26-a-successful-testing-strategy %}).
+In this post I will describe a number of best practices I find useful to keep in mind when writing tests. It is intended to act as a complement to my previous post, [A successful testing strategy](../successful-testing-strategy).
 
 ## Code coverage
 
-> "100% code coverage tells you nothing, but less than 100% code coverage tells you something."
-
-    – Unknown
+> "100% code coverage tells you nothing, but less than 100% code coverage tells you something." – Unknown
 
 Aiming for covering 100% of your code with tests is probably not realistic and [perhaps not very useful neither](https://jeroenmols.com/blog/2017/11/28/coveragproblem/). I usually start by just writing one or two unit tests for each of my functions; one that tests some basic use case for the function and often another test that just calls the function with empty parameters. I tend to think that these two cases cover a large fraction of any potential bugs (by testing both the normal flow and an easy corner case) in the function with a minimal time investment in writing these tests. More advanced tests can be added over time as deemed necessary (see also the section on Recurring Bugs).
 

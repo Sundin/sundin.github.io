@@ -3,6 +3,7 @@ categories:
   - Mindset
 date: "2018-09-28T20:34:11Z"
 title: The Last Week Mindset
+slug: last-week-mindset
 ---
 
 Being a consultant, I'm quite used to switching projects and thus have had a bit of practice in handing off a project to other developers. This has led me to a range of conslusions that I think can benefit every serious software engineer, consultant or not. I would like to summarize these findings into the "last week mindset", or; if this was your last week on your current assignment, how would you spend that week?

@@ -3,6 +3,7 @@ categories:
   - Testing
 date: "2019-06-26T13:00:07Z"
 title: A Successful Testing Strategy
+slug: successful-testing-strategy
 ---
 
 Today we will a closer look at the classic [testing pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) and see how we can transform that into a concrete strategy for how to write your tests. While the terminology I use is not exactly the same as the one used by [Mike Cohn](https://en.wikipedia.org/wiki/Mike_Cohn) when he first described the testing pyramid in his book [Succeeding with Agile](https://www.mountaingoatsoftware.com/books/succeeding-with-agile-software-development-using-scrum), the core concepts remain the same – a strong foundation of unit tests, complemented with a sufficient number of component tests (which are similar to Cohn's service tests) and sprinkled with a few end-to-end tests (which are called UI tests by Cohn) as a last line of defense.
@@ -27,7 +28,7 @@ In order to test an entire component in isolation to all other components, we us
 
 Some examples of different kinds of component tests:
 
-- Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database]({{ site.baseurl }}{% post_url 2019-03-29-dockerized-db-tests %})).
+- Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database](../dockerized-db-tests)).
 - [Cypress](https://www.cypress.io/) tests with mocked backend calls.
 
 ### Contract tests

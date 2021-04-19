@@ -37,7 +37,7 @@ To link to another post on the blog:
 
 Or (assuming the posts are in the same folder):
 
-    [some link text](../some-post)
+    [some link text](../slug-to-some-post)
 
 ## Images
 

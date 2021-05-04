@@ -23,7 +23,7 @@ Get submodules:
 
 Create a new blog post draft:
 
-    hugo new _drafts_/my-first-post.md
+    hugo new conent/_drafts_/my-first-post.md
 
 Start server with drafts enabled:
 

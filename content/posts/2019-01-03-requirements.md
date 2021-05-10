@@ -1,6 +1,6 @@
 ---
 categories:
-  - Agility
+  - Agile
 date: "2019-01-03T08:17:49Z"
 title: Why requirements don't work
 ---

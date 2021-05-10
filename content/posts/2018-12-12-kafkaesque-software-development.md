@@ -1,6 +1,6 @@
 ---
 categories:
-  - Agility
+  - Agile
 date: "2018-12-12T16:54:01Z"
 title: Kafkaesque Software Development
 ---

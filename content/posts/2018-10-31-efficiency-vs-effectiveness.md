@@ -1,6 +1,6 @@
 ---
 categories:
-  - Agility
+  - Agile
   - Mindset
 date: "2018-10-31T13:05:15Z"
 title: Efficiency vs Effectiveness

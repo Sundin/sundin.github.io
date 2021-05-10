@@ -2,7 +2,9 @@
 categories:
   - Implementation
   - Refactoring
+tags:
   - AWS
+  - DynamoDB
 date: "2021-03-30T10:34:41Z"
 title: Migrating data between DynamoDB tables
 ---

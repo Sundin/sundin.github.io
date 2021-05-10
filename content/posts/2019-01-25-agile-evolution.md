@@ -1,6 +1,6 @@
 ---
 categories:
-  - Agility
+  - Agile
 date: "2019-01-25T11:10:38Z"
 title: Agile Evolution
 ---

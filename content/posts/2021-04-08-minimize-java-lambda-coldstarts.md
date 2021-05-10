@@ -1,7 +1,9 @@
 ---
 categories:
   - Implementation
+tags:
   - AWS
+  - Java
 date: "2021-04-08T09:25:58Z"
 title: Minimize Java Lambda Cold Start Times
 slug: "implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html"

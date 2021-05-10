@@ -1,5 +1,7 @@
 ---
 categories:
+  - Tutorial
+tags:
   - DNS
 date: "2020-11-11T14:28:20Z"
 title: DNS Record Types

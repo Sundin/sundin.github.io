@@ -3,6 +3,7 @@ categories:
   - Testing
 date: "2019-08-07T00:00:00Z"
 title: "Testing: Best Practices"
+slug: testing-best-practices
 ---
 
 In this post I will describe a number of best practices I find useful to keep in mind when writing tests. It is intended to act as a complement to my previous post, [A successful testing strategy](../successful-testing-strategy).

@@ -80,7 +80,23 @@ Temporarily shut down the server, then run:
 
 The certificates and key chain are now saved under `/etc/letsencrypt`, so copy them to your application folder or change the certificate path in your application code to point there.
 
+### Renew manually
+
+Your certificates will need to be renewed every 90 days. To do so manually, make a bash script with the following content and run it:
+
+    sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start"
+
+    sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/fullchain.pem ~/bissenisse-backend/sslcert/fullchain.pem
+
+    sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/privkey.pem ~/bissenisse-backend/sslcert/privkey.pem
+
+    sudo docker-compose restart
+
+Note: it is very important to run docker-compose with sudo, otherwise the container will have insufficient permissions to read the certificate files.
+
 ### Automatic renewal
+
+You can also set up a cronjob to automatically renew your certificates.
 
 Renew certs automatically: https://certbot.eff.org/lets-encrypt/ubuntubionic-other
 
@@ -92,16 +108,3 @@ sudo touch /var/log/certbot-renew.log
 sudo chmod 666 /var/log/certbot-renew.log
 
 sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start" --dry-run >> /var/log/certbot-renew.log
-
-
-### Renew manually
-
-    sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start"
-
-    sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/fullchain.pem ~/bissenisse-backend/sslcert/fullchain.pem
-
-    sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/privkey.pem ~/bissenisse-backend/sslcert/privkey.pem
-
-    sudo docker-compose restart
-
-Note: it is very important to run docker-compose with sudo, otherwise the container will have insufficient permissions to read the certificate files.

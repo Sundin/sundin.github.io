@@ -16,10 +16,10 @@ If you are not convinced, here are some other reasons why you should be careful 
 
 ## Patterns of responsible refactoring
 
-One useful strategy for mitigating the inherent risk of refactoring is to isolate the functionality you want to rewrite into smaller chunks. This will enable you to release small pieces code into production continously, meaning that you can verify that what you are building is actually working and giving you the possibility of backtracking or changing course at any point in a very agile way. In case you hit a dead end, you can always fall back to your latest working version without having to discard weeks or months worth of work.
+One useful strategy for mitigating the inherent risk of refactoring is to isolate the functionality you want to rewrite into smaller chunks. This will enable you to release small pieces code into production continuously, meaning that you can verify that what you are building is actually working and giving you the possibility of backtracking or changing course at any point in a very agile way. In case you hit a dead end, you can always fall back to your latest working version without having to discard weeks or months worth of work.
 More often than not, it will also force you to come up with a more robust software architecture as well!
 
-Some architectural patterns can be used in order to execute this theory into practice. They are all very similiar and/or overlapping, with the main idea being to be able to shorten the release cycle in order to get quicker feedback and reduce overall risk.
+Some architectural patterns can be used in order to execute this theory into practice. They are all very similar and/or overlapping, with the main idea being to be able to shorten the release cycle in order to get quicker feedback and reduce overall risk.
 
 ### Proxy pattern
 
@@ -33,7 +33,7 @@ Some things to keep in mind while using the Exoskeleton pattern:
 
 - Cover your legacy code with tests, then replace code piece by piece, and all the while [keeping the tests green](https://www.youtube.com/watch?v=aWiwDdx_rdo). This is probably the number one, most valuable lesson to learn in order to succeed with any form of refactoring.
 - [Event Intercepton](https://www.martinfowler.com/bliki/EventInterception.html): This is a technique recommended by Martin Fowler himself when doing this type of refactoring. Tap into the stream of events flowing into your legacy system from the outside world. Make sure these events also arrive into your shiny new exoskeleton. Once you have that foundation in place, you can start moving actual functionality out into the exoskeleton.
-- [Asset capture](https://www.martinfowler.com/bliki/AssetCapture.html): Once you have your Event Interception into place, Martin Fowler suggest you continue by moving one type of data entity (i.e., one type of asset) at a time into your new system. The more finegrained entity/asset type you are able to identify, the better (again, it's better to start small and build from there). In order to get this to work, you will need to be able to synchronize all entries of that certain type into the new system, and ideally also be able to synchronize them back again. This approach will make sure you have your back covered until your new system is able to handle all the various use cases concering that asset/entity type.
+- [Asset capture](https://www.martinfowler.com/bliki/AssetCapture.html): Once you have your Event Interception into place, Martin Fowler suggest you continue by moving one type of data entity (i.e., one type of asset) at a time into your new system. The more finegrained entity/asset type you are able to identify, the better (again, it's better to start small and build from there). In order to get this to work, you will need to be able to synchronize all entries of that certain type into the new system, and ideally also be able to synchronize them back again. This approach will make sure you have your back covered until your new system is able to handle all the various use cases concerning that asset/entity type.
 
 ## Final words
 

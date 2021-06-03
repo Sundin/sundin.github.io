@@ -7,7 +7,7 @@ draft: true
 ---
 
 Problem:
-Broken master beacuase issues are only discovered after merging PR.
+Broken master because issues are only discovered after merging PR.
 Real environment (test or even production) might go down.
 
 Solution:

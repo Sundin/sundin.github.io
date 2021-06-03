@@ -10,11 +10,11 @@ Today we will a closer look at the classic [testing pyramid](https://www.mountai
 
 ## Different types of tests
 
-The concepts thrown around when talking about abouted testing can sometimes be overlapping and confusing, so it can be useful to come up with a shared definition to use within your team. Below I will share the terminology that I prefer to use, but feel free to disagree as there is no real consensus within the industry around this concepts.
+The concepts thrown around when talking about testing can sometimes be overlapping and confusing, so it can be useful to come up with a shared definition to use within your team. Below I will share the terminology that I prefer to use, but feel free to disagree as there is no real consensus within the industry around this concepts.
 
 ### Unit tests
 
-Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, corner cases, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immmediate feedback as you develop the application. Ideally, your unit test suite should run on every code change and therefore it has to be really fast. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as [mocking](http://wiki.c2.com/?MockObject) and [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
+Unit tests are the lowest level of testing. Here you should strive to do the heavy working and catch as many problems as possible: syntax errors, logical bugs, corner cases, malformed input, broken UI etc. The reason why you should spend so much focus on writing unit tests is that unit tests are easy to write and fast to execute, meaning that you get near immediate feedback as you develop the application. Ideally, your unit test suite should run on every code change and therefore it has to be really fast. You should aim at testing as small parts of the code as possible with each unit test so that you easily can locate where the problem is in case a test fails. In order to achieve this, unit testing will have to rely heavily on techniques such as [mocking](http://wiki.c2.com/?MockObject) and [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
 
 Some examples of different kinds of unit tests:
 
@@ -24,11 +24,11 @@ Some examples of different kinds of unit tests:
 
 ### Component tests
 
-In order to test an entire component in isolation to all other components, we use something called component tests. You have to decide for yourself what your definition of a component should be, but in a microservice architecture each individual service will typically be considered its own component. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests, which according to my experience are usually more closely coupled with implemention details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
+In order to test an entire component in isolation to all other components, we use something called component tests. You have to decide for yourself what your definition of a component should be, but in a microservice architecture each individual service will typically be considered its own component. Dependencies to other components should normally be mocked. The rationale for component tests is to verify that the component as a whole works as expected, without caring about its internal implementation details (as opposed to the unit tests, which according to my experience are usually more closely coupled with implementation details). Component tests should therefore have to change less frequently than the unit tests. Compared to end-to-end tests, contract tests will pinpoint errors at a more specific level and also usually be more reproducable as network flakiness will normally be mocked away.
 
 Some examples of different kinds of component tests:
 
-- Backend tests for a microservice using an actual database (preferrably a [Dockerized dummy database](../dockerized-db-tests)).
+- Backend tests for a microservice using an actual database (preferably a [Dockerized dummy database](../dockerized-db-tests)).
 - [Cypress](https://www.cypress.io/) tests with mocked backend calls.
 
 ### Contract tests

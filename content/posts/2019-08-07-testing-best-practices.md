@@ -34,7 +34,7 @@ Each test should only cover a minimal possible use case. Huge tests that tries t
 
 ## Data Ownership
 
-Tests should not be dependent on the same data as another test. This is because if one of the tests manipulates the shared data in some way, it will probably screw up for everyone else using the same data. That would mean that the test suite could give different results depending on the order in which the individual tests were executed, which is [not a good thing](https://www.martinfowler.com/articles/nonDeterminism.html). Instead, each test preferrably needs to be responsible for initializing its own set of data to use.
+Tests should not be dependent on the same data as another test. This is because if one of the tests manipulates the shared data in some way, it will probably screw up for everyone else using the same data. That would mean that the test suite could give different results depending on the order in which the individual tests were executed, which is [not a good thing](https://www.martinfowler.com/articles/nonDeterminism.html). Instead, each test preferably needs to be responsible for initializing its own set of data to use.
 
 ## Time
 

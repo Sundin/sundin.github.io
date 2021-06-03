@@ -13,7 +13,7 @@ While endpoint performance can and should be continuously improved, it is often 
 
 There are in fact such ways! These methods are all applicable for both client-service as well as service-service communication.
 
-### True asynchronousity
+### True asynchronosity
 
 The most obvious and flexible, but also potentially complex, solution is to make the operation asynchronous rather than synchronous. This is usually achieved by the means of event notification, which is [explained in all its different flavors in great detail by Martin Fowler](https://martinfowler.com/articles/201701-event-driven.html). While event driven patterns are more commonly found in communication between backend services, it can also be set up between client and server.
 

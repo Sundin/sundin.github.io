@@ -20,7 +20,7 @@ In contrast to all other cross-platform frameworks I have worked with (React Nat
 
 ### Backend/API
 
-Of the different backend frameworks I have tried out, the one that was fastest to get up and running with have been Django. I'm frankly quite impressed by it, and I really like that it already has all the features you normally need already included. One newer alternative is FastAPI, but I haven't had the oppurtunity to try that out yet.
+Of the different backend frameworks I have tried out, the one that was fastest to get up and running with have been Django. I'm frankly quite impressed by it, and I really like that it already has all the features you normally need already included. One newer alternative is FastAPI, but I haven't had the opportunity to try that out yet.
 
 Node.js with Express is also quite fast to get up and running, but not as fast as Django. I also always feel like code written in Node.js gets out of hand after a while when building production-scale APIs. That might likely be the case for the Python-based Django as well - for large scale applications I prefer to work with a strictly typed programming languages.
 

@@ -8,7 +8,7 @@ categories:
 slug: code-review-reflections
 ---
 
-The quality of the code reviews within your organization will over time have an huge impact on the overall success of your business. Missing or poor code reviews will lead to detoriating quality and much headache will follow, while good code reviews will ensure that your code base maintains a high and increasing quality. More importantly, code reviews also acts a way to share knowledge within the team. Therefore properly carried out code reviewing is one of the best, cheapest and fastest ways of aquiring skilled developers.
+The quality of the code reviews within your organization will over time have an huge impact on the overall success of your business. Missing or poor code reviews will lead to deteriorating quality and much headache will follow, while good code reviews will ensure that your code base maintains a high and increasing quality. More importantly, code reviews also acts a way to share knowledge within the team. Therefore properly carried out code reviewing is one of the best, cheapest and fastest ways of acquiring skilled developers.
 
 The purpose of a code review is mainly to get feedback on the overall design of a code change. Don't waste your time commenting on things like formatting or typos. Such things can easily be automated and built into the build pipeline, so that code that is not correctly formatted will be impossible to merge into the master branch.
 

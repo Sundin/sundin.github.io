@@ -29,6 +29,14 @@ Start server with drafts enabled:
 
     hugo server -D
 
+## Spell check
+
+    npm install -g yaspeller
+
+    yaspeller .
+
+Configure in `.yaspellerrc`.
+
 ## Internal Links
 
 To link to another post on the blog:

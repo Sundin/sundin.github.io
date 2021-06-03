@@ -44,7 +44,7 @@ The `sed` command can be used in many different and powerful ways. Two of the mo
 
 ### Replacing
 
-To replace all occurences of "hello" with "goodbye":
+To replace all occurrences of "hello" with "goodbye":
 
     sed 's/hello/goodbye/' file1.txt > file2.txt
 
@@ -80,7 +80,7 @@ The most commonly used operators are:
 
 - **Piping**, also known as **filtering**: Simply put a `|` character between two commands in order to "pipe" the output of the first command into the next one.
 - **Redirection**: Use the `>` character in order to redirect the output of the command on the left hand side into the file specified on the right hand side.
-- **Sequential commands**: In order to run a series of commands indepentently but in sequence, use either the AND (`&&`) or the OR (`||`) operator. `&&` will run the second command only if the first command succeeded (i.e., returned 0 as its status code) and `||` will run the second command only if the first one failed.
+- **Sequential commands**: In order to run a series of commands independently but in sequence, use either the AND (`&&`) or the OR (`||`) operator. `&&` will run the second command only if the first command succeeded (i.e., returned 0 as its status code) and `||` will run the second command only if the first one failed.
 
 Some examples are given below.
 

@@ -34,7 +34,8 @@
 </span><span style=color:#75715e></span>      <span style=color:#66d9ef>var</span> request = <span style=color:#66d9ef>await</span> FormatRequest(context.Request);
       request = TryGetJson(request);
 
-      <span style=color:#66d9ef>var</span> originalBodyStream = context.Response.Body;
+      <span style=color:#75715e>// Keep a copy of the body that is to be returned to the client
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>var</span> originalBodyStream = context.Response.Body;
 
       <span style=color:#66d9ef>using</span> (<span style=color:#66d9ef>var</span> responseBody = <span style=color:#66d9ef>new</span> MemoryStream())
       {
@@ -64,7 +65,8 @@
           <span style=color:#75715e>// Decide what you want to do if a client requests a resource that is not an endpoint
 </span><span style=color:#75715e></span>        }
 
-        <span style=color:#66d9ef>await</span> responseBody.CopyToAsync(originalBodyStream);
+        <span style=color:#75715e>// Reset the response body, since us reading from the stream has erased the one in the context object
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>await</span> responseBody.CopyToAsync(originalBodyStream);
       }
     }
 
@@ -114,6 +116,36 @@
     }
   }
 }
+</code></pre></div><p>The AuditMessage class is a simple data class for storing the data that is to be logged in a single audit log entry:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#960050;background-color:#1e0010>#</span>nullable enable
+<span style=color:#66d9ef>using</span> System;
+<span style=color:#66d9ef>using</span> DomainLogic.Extensions;
+<span style=color:#66d9ef>using</span> Microsoft.AspNetCore.Http;
+
+<span style=color:#66d9ef>namespace</span> DomainLogic.Dto
+{
+  <span style=color:#66d9ef>public</span> record AuditMessage
+  {
+    <span style=color:#66d9ef>public</span> DateTime Timestamp { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string?</span> Message { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> Guid? UserId { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string?</span> RequestMethod { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string?</span> RequestPath { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string?</span> Request { <span style=color:#66d9ef>get</span>; init; }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string?</span> Response { <span style=color:#66d9ef>get</span>; init; }
+
+    <span style=color:#66d9ef>public</span> AuditMessage(HttpContext context, <span style=color:#66d9ef>string</span> request, <span style=color:#66d9ef>string</span> response)
+    {
+      Timestamp = DateTime.Now;
+      Message = <span style=color:#e6db74>&#34;HTTP Request&#34;</span>;
+      UserId = context.User?.GetId(); <span style=color:#75715e>// This one is left for yourself to implement
+</span><span style=color:#75715e></span>      RequestMethod = context.Request.Method;
+      RequestPath = context.Request.Path;
+      Request = request;
+      Response = response;
+    }
+  }
+}
+
 </code></pre></div><p>Also add this class if you want to be able to annotate certain endpoints (or entire controllers) with a <code>[NoAudit]</code> attribute that excludes these endpoints from being audit logged. Note that we follow an opt-out pattern for an endpoint to be excluded from the audit logs, since the cost of forgetting to opt out is trivial, while forgotting to opt in on the other hand would be disastrous.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> System;
 
 <span style=color:#66d9ef>namespace</span> DomainLogic.Middleware.AuditLogging

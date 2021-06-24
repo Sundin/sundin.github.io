@@ -51,10 +51,9 @@
         <span style=color:#66d9ef>var</span> endpoint = context.GetEndpoint();
         <span style=color:#66d9ef>if</span> (endpoint != <span style=color:#66d9ef>null</span>)
         {
-          <span style=color:#75715e>// Check if the endpoint is excluded from being audit logged (see below)
-</span><span style=color:#75715e></span>          <span style=color:#75715e>// If you always want to log all requests, just skip these checks
-</span><span style=color:#75715e></span>          <span style=color:#66d9ef>var</span> noAuditAttribute = endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;();
-          <span style=color:#66d9ef>if</span> (noAuditAttribute == <span style=color:#66d9ef>null</span>)
+          <span style=color:#75715e>// If the request is to an endpoint, we want to do audit logging,
+</span><span style=color:#75715e></span>          <span style=color:#75715e>// unless the controller or endpoint has been explicitly marked as [NoAudit]
+</span><span style=color:#75715e></span>          <span style=color:#66d9ef>if</span> (endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;() == <span style=color:#66d9ef>null</span>)
           {
             <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
 </span><span style=color:#75715e></span>            <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));

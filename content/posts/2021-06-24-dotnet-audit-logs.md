@@ -126,4 +126,4 @@ namespace DomainLogic.Middleware
 }
 ```
 
-Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an excercise for the reader. In our case we chose to process the audit logs in an Azure Event Hub, and from there store them permanently in an Azure Storage Blob.
+Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an exercise for the reader. In our case we chose to process the audit logs in an Azure Event Hub, and from there store them permanently in an Azure Storage Blob.

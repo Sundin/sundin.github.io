@@ -36,7 +36,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DomainLogic.Middleware
+namespace DomainLogic.Middleware.AuditLogging
 {
   public class AuditLoggingMiddleware
   {
@@ -69,8 +69,22 @@ namespace DomainLogic.Middleware
         var response = await FormatResponse(context.Response);
         response = TryGetJson(response);
 
-        // TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
-        await _auditLogService.Log(new AuditMessage(context, request, response));
+        var endpoint = context.GetEndpoint();
+        if (endpoint != null)
+        {
+          // Check if the endpoint is excluded from being audit logged (see below)
+          // If you always want to log all requests, just skip these checks
+          var noAuditAttribute = endpoint.Metadata?.GetMetadata<NoAuditAttribute>();
+          if (noAuditAttribute == null)
+          {
+            // TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
+            await _auditLogService.Log(new AuditMessage(context, request, response));
+          }
+        }
+        else
+        {
+          // Decide what you want to do if a client requests a resource that is not an endpoint
+        }
 
         await responseBody.CopyToAsync(originalBodyStream);
       }
@@ -124,4 +138,19 @@ namespace DomainLogic.Middleware
 }
 ```
 
-Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an exercise for the reader. In our case we chose to process the audit logs in an Azure Event Hub, and from there store them permanently in an Azure Storage Blob.
+Also add this class if you want to be able to annotate certain endpoints (or entire controllers) with a `[NoAudit]` attribute that excludes these endpoints from being audit logged. Note that we follow an opt-out pattern for an endpoint to be excluded from the audit logs, since the cost of forgetting to opt out is trivial, while forgotting to opt in on the other hand would be disastrous.
+
+```csharp
+using System;
+
+namespace DomainLogic.Middleware.AuditLogging
+{
+  public class NoAuditAttribute : Attribute
+  {
+  }
+}
+
+```
+
+
+Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an exercise for the reader. In our case we chose to process the audit logs in an [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/), and from there store them permanently in an [Azure Storage Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage).

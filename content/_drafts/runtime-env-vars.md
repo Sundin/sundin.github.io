@@ -10,8 +10,18 @@ tags:
 draft: true
 ---
 
+A limitation to all web development frameworks is that environment variables has to be injected during build time in order to be available in the browser. If we have packaged our web application using Docker, that means that we would need to build a different container image for each different environment where we will want to host our application. This is a waste of resources and also introduces a risk of us ending up with a different codebase in our production environment than what we tried out in our QA or test environment. 
 
-env.sh:
+In this blog post I will describe another approach, where it is possible to inject environment variables during runtime instead. This means that we can use the same container image in all our environments and just change the environment variables available to each running container.
+
+Start by creating a `.env` file. This file will be populated with the environment variables to use during local development (i.e., when starting the application using `npm start` rather than Docker).
+
+```
+MY_ENV_VAR=some_value
+ANOTHER_ENV_VAR=another_value
+```
+
+Next create a small script called `env.sh` that will output a JavaScript file containing our runtime environment variables. Remember to make it executable with `chmod +x env.sh`.
 
 ```sh
 #!/bin/sh
@@ -21,25 +31,30 @@ awk -F '=' '{ print $1 ": \"" (ENVIRON[$1] ? ENVIRON[$1] : $2) "\"," }' ./.env >
 echo "}" >> ./public/env-config.
 ```
 
-In index.html:
+Add the follwoing line to `index.html` in order to access the environment variables when the user visits the running web application.
 
 ```js
 <script src="%PUBLIC_URL%/env-config.js"></script>
 ```
 
-Add this command as the start script in package.json:
+Change the start script in `package.json` to also execute the bash script before starting the web server (example for create-react-app, change as applicable for your frontend framework).
 
 ```
 ./env.sh && react-scripts start
 ```
 
-Add `public/env-config.js` to `.gitignore`.
+The environment variables are now accessible from your JavaScript code as `window._env_.MY_ENV_VAR` and `window._env_.ANOTHER_ENV_VAR`.
 
-nginx.conf:
+You can also add `public/env-config.js` to `.gitignore`.
+
+## Docker
+
+When running with Docker, we will use an image with node and npm installed to build the container image, and a lightweight NGINX image to run it.
+
+First create a simple NGINX configuration file (`nginx/default.conf`):
 
 ```nginx
 server {
-
   listen 80;
 
   location / {
@@ -51,8 +66,7 @@ server {
 
 ```
 
-
-Dockerfile:
+The `Dockerfile` looks as follows. Remember to execute the `env.sh` script when NGINX starts up.
 
 ```dockerfile
 FROM node:16-alpine3.13 as build
@@ -60,18 +74,10 @@ WORKDIR /work
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci
-COPY nginx nginx
-COPY .env .env
-COPY env.sh env.sh
-COPY tsconfig.json .
-COPY public public
-COPY types types
-COPY src src
-
+COPY . .
 RUN npm run build
 
 FROM nginx:stable-alpine as runtime
-
 COPY --from=build /work/build /app
 COPY --from=build /work/env.sh /app/env.sh
 COPY --from=build /work/.env /app/.env
@@ -83,5 +89,7 @@ EXPOSE 80
 
 CMD ["/bin/sh", "-c", "/app/env.sh && nginx -g \"daemon off;\""]
 ```
+
+## Kubernetes
 
 https://github.com/kunokdev/cra-runtime-environment-variables

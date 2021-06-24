@@ -14,7 +14,7 @@
 <span style=color:#66d9ef>using</span> System.IO;
 <span style=color:#66d9ef>using</span> System.Threading.Tasks;
 
-<span style=color:#66d9ef>namespace</span> DomainLogic.Middleware
+<span style=color:#66d9ef>namespace</span> DomainLogic.Middleware.AuditLogging
 {
   <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AuditLoggingMiddleware</span>
   {
@@ -47,8 +47,22 @@
 </span><span style=color:#75715e></span>        <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> FormatResponse(context.Response);
         response = TryGetJson(response);
 
-        <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
+        <span style=color:#66d9ef>var</span> endpoint = context.GetEndpoint();
+        <span style=color:#66d9ef>if</span> (endpoint != <span style=color:#66d9ef>null</span>)
+        {
+          <span style=color:#75715e>// Check if the endpoint is excluded from being audit logged (see below)
+</span><span style=color:#75715e></span>          <span style=color:#75715e>// If you always want to log all requests, just skip these checks
+</span><span style=color:#75715e></span>          <span style=color:#66d9ef>var</span> noAuditAttribute = endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;();
+          <span style=color:#66d9ef>if</span> (noAuditAttribute == <span style=color:#66d9ef>null</span>)
+          {
+            <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
+</span><span style=color:#75715e></span>            <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
+          }
+        }
+        <span style=color:#66d9ef>else</span>
+        {
+          <span style=color:#75715e>// Decide what you want to do if a client requests a resource that is not an endpoint
+</span><span style=color:#75715e></span>        }
 
         <span style=color:#66d9ef>await</span> responseBody.CopyToAsync(originalBodyStream);
       }
@@ -100,7 +114,16 @@
     }
   }
 }
-</code></pre></div><p>Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an exercise for the reader. In our case we chose to process the audit logs in an Azure Event Hub, and from there store them permanently in an Azure Storage Blob.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/.NET/ rel=tag>.NET</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><div class=authorbox__header><span class=authorbox__name>About Gustav Sundin</span></div><div class=authorbox__description>My name is Gustav Sundin and I currently work as software engineering consultant at Devies in Gothenburg, Sweden. I also hold a Master’s degree in Software Engineering from Chalmers University. A cool thing with that is that I am allowed to titulate myself “Master of Software Engineering”!</div><br>Follow me with <b><a href=/feed.xml>RSS</a></b>.</br><br><i>Did I make a mistake? Please feel free to <b><a href=https://github.com/Sundin/sundin.github.io>issue a pull request to my Github repo</a></b>.</i></br></div><nav class="pager flex"><div class="pager__item pager__item--prev"><a class=pager__link href=/the-weirdest-error/ rel=prev><span class=pager__subtitle>«&#8201;Previous</span><p class=pager__title>The Weirdest Error</p></a></div></nav></div><aside class=sidebar><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li><li class=widget__item><a class=widget__link href=/the-weirdest-error/>The Weirdest Error</a></li><li class=widget__item><a class=widget__link href=/code-review-reflections/>Code Review Reflections</a></li><li class=widget__item><a class=widget__link href=/kubernetes-tutorial/>A short Kubernetes tutorial</a></li><li class=widget__item><a class=widget__link href=/patterns/refactoring/2021/04/12/avoid-else.html/>Avoid using else statements</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
+</code></pre></div><p>Also add this class if you want to be able to annotate certain endpoints (or entire controllers) with a <code>[NoAudit]</code> attribute that excludes these endpoints from being audit logged. Note that we follow an opt-out pattern for an endpoint to be excluded from the audit logs, since the cost of forgetting to opt out is trivial, while forgotting to opt in on the other hand would be disastrous.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> System;
+
+<span style=color:#66d9ef>namespace</span> DomainLogic.Middleware.AuditLogging
+{
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NoAuditAttribute</span> : Attribute
+  {
+  }
+}
+
+</code></pre></div><p>Implementation of the AuditLogService class that actually sends the log entry somewhere is dependent of where you want to store your audit logs and is therefore left as an exercise for the reader. In our case we chose to process the audit logs in an <a href=https://azure.microsoft.com/en-us/services/event-hubs/>Azure Event Hub</a>, and from there store them permanently in an <a href=https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage>Azure Storage Blob</a>.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/.NET/ rel=tag>.NET</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><div class=authorbox__header><span class=authorbox__name>About Gustav Sundin</span></div><div class=authorbox__description>My name is Gustav Sundin and I currently work as software engineering consultant at Devies in Gothenburg, Sweden. I also hold a Master’s degree in Software Engineering from Chalmers University. A cool thing with that is that I am allowed to titulate myself “Master of Software Engineering”!</div><br>Follow me with <b><a href=/feed.xml>RSS</a></b>.</br><br><i>Did I make a mistake? Please feel free to <b><a href=https://github.com/Sundin/sundin.github.io>issue a pull request to my Github repo</a></b>.</i></br></div><nav class="pager flex"><div class="pager__item pager__item--prev"><a class=pager__link href=/the-weirdest-error/ rel=prev><span class=pager__subtitle>«&#8201;Previous</span><p class=pager__title>The Weirdest Error</p></a></div></nav></div><aside class=sidebar><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li><li class=widget__item><a class=widget__link href=/the-weirdest-error/>The Weirdest Error</a></li><li class=widget__item><a class=widget__link href=/code-review-reflections/>Code Review Reflections</a></li><li class=widget__item><a class=widget__link href=/kubernetes-tutorial/>A short Kubernetes tutorial</a></li><li class=widget__item><a class=widget__link href=/patterns/refactoring/2021/04/12/avoid-else.html/>Avoid using else statements</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
 <span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
 <span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
 <span class="widget__counter widget__counter--bubble">5</span></li><li class=widget__item><a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;

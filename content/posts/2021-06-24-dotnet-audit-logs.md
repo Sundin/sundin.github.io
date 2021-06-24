@@ -73,10 +73,9 @@ namespace DomainLogic.Middleware.AuditLogging
         var endpoint = context.GetEndpoint();
         if (endpoint != null)
         {
-          // Check if the endpoint is excluded from being audit logged (see below)
-          // If you always want to log all requests, just skip these checks
-          var noAuditAttribute = endpoint.Metadata?.GetMetadata<NoAuditAttribute>();
-          if (noAuditAttribute == null)
+          // If the request is to an endpoint, we want to do audit logging,
+          // unless the controller or endpoint has been explicitly marked as [NoAudit]
+          if (endpoint.Metadata?.GetMetadata<NoAuditAttribute>() == null)
           {
             // TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
             await _auditLogService.Log(new AuditMessage(context, request, response));

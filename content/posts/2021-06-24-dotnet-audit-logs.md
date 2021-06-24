@@ -56,6 +56,7 @@ namespace DomainLogic.Middleware.AuditLogging
       var request = await FormatRequest(context.Request);
       request = TryGetJson(request);
 
+      // Keep a copy of the body that is to be returned to the client
       var originalBodyStream = context.Response.Body;
 
       using (var responseBody = new MemoryStream())
@@ -86,6 +87,7 @@ namespace DomainLogic.Middleware.AuditLogging
           // Decide what you want to do if a client requests a resource that is not an endpoint
         }
 
+        // Reset the response body, since us reading from the stream has erased the one in the context object
         await responseBody.CopyToAsync(originalBodyStream);
       }
     }
@@ -137,6 +139,42 @@ namespace DomainLogic.Middleware.AuditLogging
   }
 }
 ```
+
+The AuditMessage class is a simple data class for storing the data that is to be logged in a single audit log entry:
+
+```csharp
+#nullable enable
+using System;
+using DomainLogic.Extensions;
+using Microsoft.AspNetCore.Http;
+
+namespace DomainLogic.Dto
+{
+  public record AuditMessage
+  {
+    public DateTime Timestamp { get; init; }
+    public string? Message { get; init; }
+    public Guid? UserId { get; init; }
+    public string? RequestMethod { get; init; }
+    public string? RequestPath { get; init; }
+    public string? Request { get; init; }
+    public string? Response { get; init; }
+
+    public AuditMessage(HttpContext context, string request, string response)
+    {
+      Timestamp = DateTime.Now;
+      Message = "HTTP Request";
+      UserId = context.User?.GetId(); // This one is left for yourself to implement
+      RequestMethod = context.Request.Method;
+      RequestPath = context.Request.Path;
+      Request = request;
+      Response = response;
+    }
+  }
+}
+
+```
+
 
 Also add this class if you want to be able to annotate certain endpoints (or entire controllers) with a `[NoAudit]` attribute that excludes these endpoints from being audit logged. Note that we follow an opt-out pattern for an endpoint to be excluded from the audit logs, since the cost of forgetting to opt out is trivial, while forgotting to opt in on the other hand would be disastrous.
 

@@ -29,14 +29,12 @@ Here's the code for implementing the middleware itself:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using DomainLogic.Dto;
-using DomainLogic.Services;
 using Microsoft.AspNetCore.Builder;
-using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.Text;
-using DomainLogic.Helpers;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace DomainLogic.Middleware
 {

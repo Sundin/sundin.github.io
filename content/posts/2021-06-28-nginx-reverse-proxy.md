@@ -9,6 +9,7 @@ categories:
 tags:
   - Docker
   - AWS
+  - NGINX
 slug: nginx-reverse-proxy
 ---
 

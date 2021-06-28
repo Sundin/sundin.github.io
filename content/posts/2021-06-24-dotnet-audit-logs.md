@@ -70,24 +70,37 @@ namespace DomainLogic.Middleware.AuditLogging
         var response = await FormatResponse(context.Response);
         response = TryGetJson(response);
 
-        var endpoint = context.GetEndpoint();
-        if (endpoint != null)
+        try
         {
-          // If the request is to an endpoint, we want to do audit logging,
-          // unless the controller or endpoint has been explicitly marked as [NoAudit]
-          if (endpoint.Metadata?.GetMetadata<NoAuditAttribute>() == null)
-          {
-            // TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
-            await _auditLogService.Log(new AuditMessage(context, request, response));
-          }
-        }
-        else
-        {
-          // Decide what you want to do if a client requests a resource that is not an endpoint
-        }
+          await DoAuditLog(context, request, response);
 
-        // Reset the response body, since us reading from the stream has erased the one in the context object
-        await responseBody.CopyToAsync(originalBodyStream);
+          // Reset the response body, since us reading from the stream has erased the one in the context object
+          await responseBody.CopyToAsync(originalBodyStream);
+        }
+        catch (Exception ex)
+        {
+          // We should never return any data to the client if it's not audit logged
+          context.Response.StatusCode = 500;
+        }
+      }
+    }
+
+    private async Task DoAuditLog(HttpContext context, string request, string response)
+    {
+      var endpoint = context.GetEndpoint();
+      if (endpoint != null)
+      {
+        // If the request is to an endpoint, we want to do audit logging,
+        // unless the controller or endpoint has been explicitly marked as [NoAudit]
+        if (endpoint.Metadata?.GetMetadata<NoAuditAttribute>() == null)
+        {
+          // TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
+          await _auditLogService.Log(new AuditMessage(context, request, response));
+        }
+      }
+      else
+      {
+        // Decide what you want to do if a client requests a resource that is not an endpoint
       }
     }
 

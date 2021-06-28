@@ -48,25 +48,38 @@
 </span><span style=color:#75715e></span>        <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> FormatResponse(context.Response);
         response = TryGetJson(response);
 
-        <span style=color:#66d9ef>var</span> endpoint = context.GetEndpoint();
-        <span style=color:#66d9ef>if</span> (endpoint != <span style=color:#66d9ef>null</span>)
+        <span style=color:#66d9ef>try</span>
         {
-          <span style=color:#75715e>// If the request is to an endpoint, we want to do audit logging,
-</span><span style=color:#75715e></span>          <span style=color:#75715e>// unless the controller or endpoint has been explicitly marked as [NoAudit]
-</span><span style=color:#75715e></span>          <span style=color:#66d9ef>if</span> (endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;() == <span style=color:#66d9ef>null</span>)
-          {
-            <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
-</span><span style=color:#75715e></span>            <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
-          }
-        }
-        <span style=color:#66d9ef>else</span>
-        {
-          <span style=color:#75715e>// Decide what you want to do if a client requests a resource that is not an endpoint
-</span><span style=color:#75715e></span>        }
+          <span style=color:#66d9ef>await</span> DoAuditLog(context, request, response);
 
-        <span style=color:#75715e>// Reset the response body, since us reading from the stream has erased the one in the context object
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>await</span> responseBody.CopyToAsync(originalBodyStream);
+          <span style=color:#75715e>// Reset the response body, since us reading from the stream has erased the one in the context object
+</span><span style=color:#75715e></span>          <span style=color:#66d9ef>await</span> responseBody.CopyToAsync(originalBodyStream);
+        }
+        <span style=color:#66d9ef>catch</span> (Exception ex)
+        {
+          <span style=color:#75715e>// We should never return any data to the client if it&#39;s not audit logged
+</span><span style=color:#75715e></span>          context.Response.StatusCode = <span style=color:#ae81ff>500</span>;
+        }
       }
+    }
+
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task DoAuditLog(HttpContext context, <span style=color:#66d9ef>string</span> request, <span style=color:#66d9ef>string</span> response)
+    {
+      <span style=color:#66d9ef>var</span> endpoint = context.GetEndpoint();
+      <span style=color:#66d9ef>if</span> (endpoint != <span style=color:#66d9ef>null</span>)
+      {
+        <span style=color:#75715e>// If the request is to an endpoint, we want to do audit logging,
+</span><span style=color:#75715e></span>        <span style=color:#75715e>// unless the controller or endpoint has been explicitly marked as [NoAudit]
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;() == <span style=color:#66d9ef>null</span>)
+        {
+          <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)
+</span><span style=color:#75715e></span>          <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
+        }
+      }
+      <span style=color:#66d9ef>else</span>
+      {
+        <span style=color:#75715e>// Decide what you want to do if a client requests a resource that is not an endpoint
+</span><span style=color:#75715e></span>      }
     }
 
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>string</span> TryGetJson(<span style=color:#66d9ef>string</span> json)

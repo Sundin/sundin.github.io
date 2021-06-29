@@ -1,6 +1,6 @@
 ---
 title: "Automatic Audit Logs in .NET"
-date: "2021-06-21T14:58:32+02:00"
+date: "2021-06-24T14:58:32+02:00"
 categories:
   - Implementation
 tags:

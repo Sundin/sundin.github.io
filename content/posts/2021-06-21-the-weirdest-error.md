@@ -6,6 +6,8 @@ thumbnail: ""
 tags:
   - PHP
 slug: the-weirdest-error
+categories:
+  - Other
 ---
 
 A while ago, I stumbled across the weirdest error I have encountered so far during my software development career. It happened after a routine bump of the WordPress version running the WooCommerce web shop of [my record label](https://www.jawbreaker.se/). Everything seemed to be running fine, but then one customer reported that the checkout was broken (very bad for a web shop). I verified that I could reproduce the error on my own and started troubleshooting. I figured that the error was unlikely to be directly caused by the new WordPress version itself, and I therefore quickly narrowed down on the possibility that one of my plugins had incompatible code with the new version. After disabling and enabling different stuff for a while (made more difficult to debug due to browser caching) I figured out that the problem was somewhere in the code I had written for my custom child theme. After further troubleshooting I was also able to localize which was the faulty file – nothing strange so far. 

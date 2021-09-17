@@ -1,21 +1,326 @@
-<!doctype html><html class=no-js lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><title>Posts - Master of Software Engineering</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"><link rel=stylesheet href=/css/style.css><link rel=alternate type=application/rss+xml href=/posts/feed.xml title="Master of Software Engineering"><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title="Master of Software Engineering" rel=home><div class="logo__item logo__text"><div class=logo__title>Master of Software Engineering</div></div></a></div><div class=divider></div></div></header><div class="wrapper flex"><div class=primary><main class="main list" role=main><header class=main__header><h1 class=main__title>Posts</h1></header><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/runtime-env-vars/ rel=bookmark>Runtime Environment Variables in the Browser</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-30T10:58:32+02:00>2021-06-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a></span></div></div></header><div class="content list__excerpt post__content clearfix">A limitation to all web development frameworks is that environment variables has to be injected during build time in order to made be available in the browser. If we have packaged our web application using Docker, that means that we would need to build a different container image for each different environment where we will want to host our application. This is a waste of resources and also introduces a risk of us ending up with a different codebase in our production environment than what we tried out in our QA or test environment.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/runtime-env-vars/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/nginx-reverse-proxy/ rel=bookmark>How to Build a Reverse Proxy</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-28T10:58:32+02:00>2021-06-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>, <a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a></span></div></div></header><div class="content list__excerpt post__content clearfix">In this blog post I will describe how you can deploy services on the same server. The server will be fronted by an NGINX instance acting as a reverse proxy responsible for forwarding incoming traffic to the right service.
-I will use an EC2 instance on AWS since it has a low monthly cost and I don&rsquo;t have to worry about hardware maintenance at all, but you can use the same approach for any kind of server.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/nginx-reverse-proxy/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/dotnet-audit-logs/ rel=bookmark>Automatic Audit Logs in .NET</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-24T14:58:32+02:00>2021-06-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a></span></div></div></header><div class="content list__excerpt post__content clearfix">A common requirement for most serious applications is to be able to produce audit logs: information about which user has accessed what information and when.
+<!doctype html><html class=no-js lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Posts - Master of Software Engineering</title>
+<script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
+<meta name=description content>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=dns-prefetch href=//fonts.googleapis.com>
+<link rel=dns-prefetch href=//fonts.gstatic.com>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+<link rel=stylesheet href=/css/style.css>
+<link rel=alternate type=application/rss+xml href=/posts/feed.xml title="Master of Software Engineering">
+<link rel="shortcut icon" href=/favicon.ico>
+</head>
+<body class=body>
+<div class="container container--outer">
+<header class=header>
+<div class="container header__container">
+<div class=logo>
+<a class=logo__link href=/ title="Master of Software Engineering" rel=home>
+<div class="logo__item logo__text">
+<div class=logo__title>Master of Software Engineering</div>
+</div>
+</a>
+</div>
+<div class=divider></div>
+</div>
+</header>
+<div class="wrapper flex">
+<div class=primary>
+<main class="main list" role=main>
+<header class=main__header>
+<h1 class=main__title>Posts</h1>
+</header><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/ rel=bookmark>
+Setup Raspberry Pi to act as your own web server
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-09-17T10:58:32+02:00>2021-09-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+In this blog post I will describe how I set up my own web server using just a single Raspberry Pi at home. This is a cheap and fun solution to hosting your own applications, in my case using Docker.
+Setting up the Raspberry Pi Install the Raspbian OS on your Raspberry Pi&rsquo;s SD card.
+In order to connect wirelessly to the Raspberry without having it connect to a monitor, you need to set up headless SSH.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/runtime-env-vars/ rel=bookmark>
+Runtime Environment Variables in the Browser
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-30T10:58:32+02:00>2021-06-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+A limitation to all web development frameworks is that environment variables has to be injected during build time in order to made be available in the browser. If we have packaged our web application using Docker, that means that we would need to build a different container image for each different environment where we will want to host our application. This is a waste of resources and also introduces a risk of us ending up with a different codebase in our production environment than what we tried out in our QA or test environment.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/runtime-env-vars/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/nginx-reverse-proxy/ rel=bookmark>
+How to Build a Reverse Proxy
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-28T10:58:32+02:00>2021-06-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>, <a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+In this blog post I will describe how you can deploy services on the same server. The server will be fronted by an NGINX instance acting as a reverse proxy responsible for forwarding incoming traffic to the right service.
+I will use an EC2 instance on AWS since it has a low monthly cost and I don&rsquo;t have to worry about hardware maintenance at all, but you can use the same approach for any kind of server.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/nginx-reverse-proxy/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/dotnet-audit-logs/ rel=bookmark>
+Automatic Audit Logs in .NET
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-24T14:58:32+02:00>2021-06-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+A common requirement for most serious applications is to be able to produce audit logs: information about which user has accessed what information and when.
 In the .NET Core 5.0 API we are building right now, we decided to implement this functionality as a middleware that will automatically be executed upon every request to the API.
-We want to log the response actually sent back to the client, so it&rsquo;s important that we put our new middleware first (or at least very early) in the HTTP request pipeline.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/dotnet-audit-logs/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/the-weirdest-error/ rel=bookmark>The Weirdest Error</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-21T10:58:32+02:00>2021-06-21</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Other/ rel=category>Other</a></span></div></div></header><div class="content list__excerpt post__content clearfix">A while ago, I stumbled across the weirdest error I have encountered so far during my software development career. It happened after a routine bump of the WordPress version running the WooCommerce web shop of my record label. Everything seemed to be running fine, but then one customer reported that the checkout was broken (very bad for a web shop). I verified that I could reproduce the error on my own and started troubleshooting.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/the-weirdest-error/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/code-review-reflections/ rel=bookmark>Code Review Reflections</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-05-09T08:31:41Z>2021-05-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Learning/ rel=category>Learning</a>, <a class=meta__link href=/categories/Workflow/ rel=category>Workflow</a></span></div></div></header><div class="content list__excerpt post__content clearfix">The quality of the code reviews within your organization will over time have an huge impact on the overall success of your business. Missing or poor code reviews will lead to deteriorating quality and much headache will follow, while good code reviews will ensure that your code base maintains a high and increasing quality. More importantly, code reviews also acts a way to share knowledge within the team. Therefore properly carried out code reviewing is one of the best, cheapest and fastest ways of acquiring skilled developers.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/code-review-reflections/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/kubernetes-tutorial/ rel=bookmark>A short Kubernetes tutorial</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-14T08:31:41Z>2021-04-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>, <a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a></span></div></div></header><div class="content list__excerpt post__content clearfix">Currently I&rsquo;m learning Kubernetes and Flux. Two of my top three favourite methods for learning something is to write about it and to teach it to someone else. This time I combined the two into a short tutorial on what I have learnt so far. If you are interested, you will find my Kubernetes tutorial on Github!</div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/patterns/refactoring/2021/04/12/avoid-else.html/ rel=bookmark>Avoid using else statements</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-12T00:00:00Z>2021-04-12</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Patterns/ rel=category>Patterns</a>, <a class=meta__link href=/categories/Refactoring/ rel=category>Refactoring</a></span></div></div></header><div class="content list__excerpt post__content clearfix">Let&rsquo;s take a simple example from the world of JavaScript, where we can&rsquo;t be certain of the type of a variable up front. Let&rsquo;s say we have a function (myFunction) which we can either pass a string or an array of strings. If we pass it a string, we want to do something with that string. If we pass it an array, we want to do the same thing for each element in the array.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/patterns/refactoring/2021/04/12/avoid-else.html/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/ rel=bookmark>Minimize Java Lambda Cold Start Times</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-08T09:25:58Z>2021-04-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a></span></div></div></header><div class="content list__excerpt post__content clearfix">If you have ever run Java inside a lambda function on AWS, you will have noticed the quite significant cold start times that comes with spinning up the JVM environment. In this post, I will discuss some different tricks you can use to minimize these cold start times.
-The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda available to handle an incoming request, which usually happens whenever an endpoint experiences a large and sudden spike in traffic.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/Migrating-data-between-DynamoDB-tables/ rel=bookmark>Migrating data between DynamoDB tables</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-03-30T10:34:41Z>2021-03-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>, <a class=meta__link href=/categories/Refactoring/ rel=category>Refactoring</a></span></div></div></header><div class="content list__excerpt post__content clearfix">When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the official AWS documentation states that “you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”, you often need to experiment to be able to discover what those questions are.</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/Migrating-data-between-DynamoDB-tables/>Read more…</a></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/DNS-Record-Types/ rel=bookmark>DNS Record Types</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2020-11-11T14:28:20Z>2020-11-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a></span></div></div></header><div class="content list__excerpt post__content clearfix">In this blog post I will briefly explain some of the most common DNS record types.
-A (address) record: always points to a static IP address. AAAA record: the same as the A type record, but for IPv6 IP addresses. CNAME (canonical name) record: alias to another name (=domain), which can be an A record or another CNAME record. The only exception is that you cannot create a CNAME record in the zone apex (the root of your domain).</div><div class="list__footer clearfix"><a class="list__footer-readmore btn" href=/DNS-Record-Types/>Read more…</a></div></article></main><div class=pagination><span class="pagination__item pagination__item--current">1/3</span>
-<a class="pagination__item pagination__item--next btn" href=/posts/page/2/>»</a></div></div><aside class=sidebar><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li><li class=widget__item><a class=widget__link href=/nginx-reverse-proxy/>How to Build a Reverse Proxy</a></li><li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li><li class=widget__item><a class=widget__link href=/the-weirdest-error/>The Weirdest Error</a></li><li class=widget__item><a class=widget__link href=/code-review-reflections/>Code Review Reflections</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">6</span></li><li class=widget__item><a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Mindset/>Mindset</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Other/>Other</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Patterns/>Patterns</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Refactoring/>Refactoring</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Workflow/>Workflow</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Tags</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/.NET/ title=.NET>.NET</a>
+We want to log the response actually sent back to the client, so it&rsquo;s important that we put our new middleware first (or at least very early) in the HTTP request pipeline.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/dotnet-audit-logs/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/the-weirdest-error/ rel=bookmark>
+The Weirdest Error
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-06-21T10:58:32+02:00>2021-06-21</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Other/ rel=category>Other</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+A while ago, I stumbled across the weirdest error I have encountered so far during my software development career. It happened after a routine bump of the WordPress version running the WooCommerce web shop of my record label. Everything seemed to be running fine, but then one customer reported that the checkout was broken (very bad for a web shop). I verified that I could reproduce the error on my own and started troubleshooting.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/the-weirdest-error/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/code-review-reflections/ rel=bookmark>
+Code Review Reflections
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-05-09T08:31:41Z>2021-05-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Learning/ rel=category>Learning</a>, <a class=meta__link href=/categories/Workflow/ rel=category>Workflow</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+The quality of the code reviews within your organization will over time have an huge impact on the overall success of your business. Missing or poor code reviews will lead to deteriorating quality and much headache will follow, while good code reviews will ensure that your code base maintains a high and increasing quality. More importantly, code reviews also acts a way to share knowledge within the team. Therefore properly carried out code reviewing is one of the best, cheapest and fastest ways of acquiring skilled developers.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/code-review-reflections/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/kubernetes-tutorial/ rel=bookmark>
+A short Kubernetes tutorial
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-14T08:31:41Z>2021-04-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>, <a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+Currently I&rsquo;m learning Kubernetes and Flux. Two of my top three favourite methods for learning something is to write about it and to teach it to someone else. This time I combined the two into a short tutorial on what I have learnt so far. If you are interested, you will find my Kubernetes tutorial on Github!
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/patterns/refactoring/2021/04/12/avoid-else.html/ rel=bookmark>
+Avoid using else statements
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-12T00:00:00Z>2021-04-12</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Patterns/ rel=category>Patterns</a>, <a class=meta__link href=/categories/Refactoring/ rel=category>Refactoring</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+Let&rsquo;s take a simple example from the world of JavaScript, where we can&rsquo;t be certain of the type of a variable up front. Let&rsquo;s say we have a function (myFunction) which we can either pass a string or an array of strings. If we pass it a string, we want to do something with that string. If we pass it an array, we want to do the same thing for each element in the array.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/patterns/refactoring/2021/04/12/avoid-else.html/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/ rel=bookmark>
+Minimize Java Lambda Cold Start Times
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-08T09:25:58Z>2021-04-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+If you have ever run Java inside a lambda function on AWS, you will have noticed the quite significant cold start times that comes with spinning up the JVM environment. In this post, I will discuss some different tricks you can use to minimize these cold start times.
+The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda available to handle an incoming request, which usually happens whenever an endpoint experiences a large and sudden spike in traffic.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
+<a href=/Migrating-data-between-DynamoDB-tables/ rel=bookmark>
+Migrating data between DynamoDB tables
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-03-30T10:34:41Z>2021-03-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>, <a class=meta__link href=/categories/Refactoring/ rel=category>Refactoring</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the official AWS documentation states that “you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”, you often need to experiment to be able to discover what those questions are.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/Migrating-data-between-DynamoDB-tables/>Read more…</a>
+</div>
+</article>
+</main>
+<div class=pagination>
+<span class="pagination__item pagination__item--current">1/3</span>
+<a class="pagination__item pagination__item--next btn" href=/posts/page/2/>»</a>
+</div>
+</div>
+<aside class=sidebar>
+<div class="widget-recent widget">
+<h4 class=widget__title>Recent Posts</h4>
+<div class=widget__content>
+<ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
+<li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li>
+<li class=widget__item><a class=widget__link href=/nginx-reverse-proxy/>How to Build a Reverse Proxy</a></li>
+<li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li>
+<li class=widget__item><a class=widget__link href=/the-weirdest-error/>The Weirdest Error</a></li>
+</ul>
+</div>
+</div>
+<div class="widget-categories widget">
+<h4 class=widget__title>Categories</h4>
+<div class=widget__content>
+<ul class=widget__list>
+<li class=widget__item>
+<a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">4</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">1</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">6</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Mindset/>Mindset</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Other/>Other</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Patterns/>Patterns</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Refactoring/>Refactoring</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">5</span>
+</li>
+<li class=widget__item>
+<a class=widget__link href=/categories/Workflow/>Workflow</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="widget-taglist widget">
+<h4 class=widget__title>Tags</h4>
+<div class=widget__content>
+<a class="widget-taglist__link widget__link btn" href=/tags/.NET/ title=.NET>.NET</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/AWS/ title=AWS>AWS</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/DNS/ title=DNS>DNS</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Docker/ title=Docker>Docker</a>
@@ -24,6 +329,47 @@ A (address) record: always points to a static IP address. AAAA record: the same 
 <a class="widget-taglist__link widget__link btn" href=/tags/Kubernetes/ title=Kubernetes>Kubernetes</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/NGINX/ title=NGINX>NGINX</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/PHP/ title=PHP>PHP</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/Raspberry-Pi/ title="Raspberry Pi">Raspberry Pi</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/React/ title=React>React</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/Vue/ title=Vue>Vue</a></div></div><div class="widget-social widget"><h4 class="widget-social__title widget__title">Social</h4><div class="widget-social__content widget__content"><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=GitHub rel="noopener noreferrer" href=https://github.com/Sundin target=_blank><svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0C85.9.0.0 85.8.0 191.7c0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2.0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8.0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7.0.0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4.0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5.0 25.6-.2 46.3-.2 52.6.0 5.1 3.5 11.1 13.2 9.2C329 348.2 384 276.4 384 191.7 384 85.8 298 0 192 0z"/></svg><span>GitHub</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=Email href=mailto:gustav@devies.se><svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16V16 0h-16H16 0zm347 16-139 92.5L69 32zM199 157.5l9 5.5 9-5.5L384 46v210H32V46z"/></svg><span>gustav@devies.se</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title="Stack Overflow" rel="noopener noreferrer" href=https://stackoverflow.com/users/948942/incinerator target=_blank><svg class="widget-social__link-icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span>Stack Overflow</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title="About Me" rel="noopener noreferrer" href=/welcome target=_blank><svg class="widget-social__link-icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span>About Me</span></a></div></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__copyright>&copy; 2021 Gustav Sundin.
-<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span></div></div></footer></div><script async defer src=/js/menu.js></script></body></html>
+<a class="widget-taglist__link widget__link btn" href=/tags/Vue/ title=Vue>Vue</a>
+</div>
+</div>
+<div class="widget-social widget">
+<h4 class="widget-social__title widget__title">Social</h4>
+<div class="widget-social__content widget__content">
+<div class="widget-social__item widget__item">
+<a class="widget-social__link widget__link btn" title=GitHub rel="noopener noreferrer" href=https://github.com/Sundin target=_blank><svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0C85.9.0.0 85.8.0 191.7c0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2.0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8.0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7.0.0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4.0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5.0 25.6-.2 46.3-.2 52.6.0 5.1 3.5 11.1 13.2 9.2C329 348.2 384 276.4 384 191.7 384 85.8 298 0 192 0z"/></svg>
+<span>GitHub</span>
+</a>
+</div>
+<div class="widget-social__item widget__item">
+<a class="widget-social__link widget__link btn" title=Email href=mailto:gustav@devies.se><svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16V16 0h-16H16 0zm347 16-139 92.5L69 32zM199 157.5l9 5.5 9-5.5L384 46v210H32V46z"/></svg>
+<span>gustav@devies.se</span>
+</a>
+</div>
+<div class="widget-social__item widget__item">
+<a class="widget-social__link widget__link btn" title="Stack Overflow" rel="noopener noreferrer" href=https://stackoverflow.com/users/948942/incinerator target=_blank><svg class="widget-social__link-icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg>
+<span>Stack Overflow</span>
+</a>
+</div>
+<div class="widget-social__item widget__item">
+<a class="widget-social__link widget__link btn" title="About Me" rel="noopener noreferrer" href=/welcome target=_blank><svg class="widget-social__link-icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg>
+<span>About Me</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<footer class=footer>
+<div class="container footer__container flex">
+<div class=footer__copyright>
+&copy; 2021 Gustav Sundin.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span>
+</div>
+</div>
+</footer>
+</div>
+<script async defer src=/js/menu.js></script>
+</body>
+</html>

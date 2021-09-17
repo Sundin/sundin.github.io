@@ -1,13 +1,13 @@
 ---
 title: "Setup Raspberry Pi to act as your own web server"
 description: ""
-date: "2021-05-04T10:58:32+02:00"
+date: "2021-09-17T10:58:32+02:00"
 thumbnail: ""
 categories:
-  - ""
+  - Tutorial
 tags:
-  - ""
-draft: true
+  - Raspberry Pi
+  - Docker
 ---
 
 In this blog post I will describe how I set up my own web server using just a single Raspberry Pi at home. This is a cheap and fun solution to hosting your own applications, in my case using Docker.
@@ -28,7 +28,7 @@ SSH into it:
 
     ssh pi@<ip>
 
-The default password is `raspberry`. It might be a good idea to change it now!
+The default password is `raspberry`. It might be a good idea to change this now!
 
 
 ### Installing Docker
@@ -56,7 +56,7 @@ You are now ready to launch an application of your own! I did it by simply pulli
 
 ## Connect from the outside world
 
-Make sure you have a public IP. I requested a static public IP address from my ISP, but this is optional.
+Make sure you have a public IP. I requested a static public IP address from my ISP, but this is optional. Another option is to set up a dynamic IP address using for example [noip.com](https://www.noip.com/) or [duckdns.org](https://www.duckdns.org/).
 
 Give your Raspberry Pi a static IP on your local network. [This](https://kb.netgear.com/25722/How-do-I-reserve-an-IP-address-on-my-NETGEAR-router) is how I did it for my Netgear router.
 
@@ -65,7 +65,7 @@ Forward port 8080 from your router to the Raspberry. Again, [this](https://kb.ne
 In order to get a nice, user-friendly web domain instead of having to remember your public IP, there's a nice service called [DuckDNS](https://www.duckdns.org/). Just create a free account and then follow the [instructions](https://www.duckdns.org/install.jsp).
 
 ## HTTPS communication
-Of course you need to encrypt traffic on your web site. For this, we use the free service Let's Encrypt.
+Of course you need to encrypt traffic on your web site. For this, you can use the free service Let's Encrypt.
 
 Run the following commands on your Raspberry Pi:
 
@@ -96,15 +96,17 @@ Note: it is very important to run docker-compose with sudo, otherwise the contai
 
 ### Automatic renewal
 
-You can also set up a cronjob to automatically renew your certificates.
-
-Renew certs automatically: https://certbot.eff.org/lets-encrypt/ubuntubionic-other
+You can also set up a cronjob to automatically renew your certificates. Maybe I will return with instructions for this later, for now it is left as an excercise for the reader!
 
 
-0 _/12 _ \* \* root sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start"
+
+<!-- Renew certs automatically: https://certbot.eff.org/lets-encrypt/ubuntubionic-other -->
+
+
+<!-- sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start"
 
 sudo touch /var/log/certbot-renew.log
 
 sudo chmod 666 /var/log/certbot-renew.log
 
-sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start" --dry-run >> /var/log/certbot-renew.log
+sudo certbot renew --pre-hook "docker-compose stop" --post-hook "sudo docker-compose start" --dry-run >> /var/log/certbot-renew.log -->

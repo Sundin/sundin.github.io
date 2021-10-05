@@ -35,6 +35,28 @@
 <article class="list__item post">
 <header class=list__header>
 <h2 class="list__title post__title">
+<a href=/Introducing-Frontman/ rel=bookmark>
+Introducing Frontman
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-10-04T10:58:32+02:00>2021-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>, <a class=meta__link href=/categories/Announcements/ rel=category>Announcements</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+Frontman is a very light-weight NGINX reverse proxy that is deployed using Docker. Its purpose is to act as the entry point to your server. It will redirect incoming traffic to one out of many Docker-based applications running on the same server, based on the hostname in the incoming request.
+The rationale behind this is that it enables you to host as many services as you want on the same server, while still only keeping ports 80 and 443 open to the outside world.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/Introducing-Frontman/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
 <a href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/ rel=bookmark>
 Setup Raspberry Pi to act as your own web server
 </a>
@@ -224,27 +246,6 @@ The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda 
 <div class="list__footer clearfix">
 <a class="list__footer-readmore btn" href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/>Read more…</a>
 </div>
-</article><article class="list__item post">
-<header class=list__header>
-<h2 class="list__title post__title">
-<a href=/Migrating-data-between-DynamoDB-tables/ rel=bookmark>
-Migrating data between DynamoDB tables
-</a>
-</h2>
-<div class="list__meta meta"><div class="meta__item-author meta__item">
-<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
-</div>
-<div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-03-30T10:34:41Z>2021-03-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>, <a class=meta__link href=/categories/Refactoring/ rel=category>Refactoring</a>
-</span>
-</div></div>
-</header>
-<div class="content list__excerpt post__content clearfix">
-When setting up a new DynamoDB table, an important decision is to decide what primary key to use. However, it’s not uncommon to not have the full picture up front and therefore it could be hard to make the right decision beforehand. While the official AWS documentation states that “you shouldn’t start designing your schema for DynamoDB until you know the questions it will need to answer”, you often need to experiment to be able to discover what those questions are.
-</div>
-<div class="list__footer clearfix">
-<a class="list__footer-readmore btn" href=/Migrating-data-between-DynamoDB-tables/>Read more…</a>
-</div>
 </article>
 </main>
 <div class=pagination>
@@ -257,11 +258,11 @@ When setting up a new DynamoDB table, an important decision is to decide what pr
 <h4 class=widget__title>Recent Posts</h4>
 <div class=widget__content>
 <ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/Introducing-Frontman/>Introducing Frontman</a></li>
 <li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
 <li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li>
 <li class=widget__item><a class=widget__link href=/nginx-reverse-proxy/>How to Build a Reverse Proxy</a></li>
 <li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li>
-<li class=widget__item><a class=widget__link href=/the-weirdest-error/>The Weirdest Error</a></li>
 </ul>
 </div>
 </div>
@@ -274,12 +275,16 @@ When setting up a new DynamoDB table, an important decision is to decide what pr
 <span class="widget__counter widget__counter--bubble">4</span>
 </li>
 <li class=widget__item>
+<a class=widget__link href=/categories/Announcements/>Announcements</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span>
+</li>
+<li class=widget__item>
 <a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
 <span class="widget__counter widget__counter--bubble">1</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">6</span>
+<span class="widget__counter widget__counter--bubble">7</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;

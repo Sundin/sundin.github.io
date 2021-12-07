@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>Agile Evolution - Master of Software Engineering</title>
+<title>Token-Based Authorization in .NET Core 6.0 - Master of Software Engineering</title>
 <script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
 <meta name=description content>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
@@ -32,23 +32,49 @@
 <main class=main role=main>
 <article class=post>
 <header class=post__header>
-<h1 class=post__title>Agile Evolution</h1>
+<h1 class=post__title>Token-Based Authorization in .NET Core 6.0</h1>
 <div class="post__meta meta"><div class="meta__item-author meta__item">
 <svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
 </div>
 <div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2019-01-25T11:10:38Z>2019-01-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Agile/ rel=category>Agile</a>
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-12-06T00:00:00Z>2021-12-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Patterns/ rel=category>Patterns</a>
 </span>
 </div></div>
 </header><div class="content post__content clearfix">
-<p>Everything in nature goes in circles. Days turn into night in a circadian rhythm. Seasons replace each other.</p>
-<p>Even life itself is iterative.</p>
-<p>In every generation, a small number of genes gets changed due to random mutations. I’m not a biologist, but through some quick googling I found out that the human genome changes with a mutation rate of about <a href=http://science.sciencemag.org/content/328/5978/636.abstract>10-8 per generation</a>. This is obviously a number that natural selection has arrived at and found optimal. A lower rate would mean that <em>Homo sapiens</em> would be unable to keep up with changing conditions in our environment, and a higher rate leads to a too high risk of fatal mutations or even what is called an <a href=https://jvi.asm.org/content/80/1/20.full>error catastrophe</a> – when a whole species gets exterminated due to uncontrolled mutation.</p>
-<p>Through natural selection, what works good is turned up a little bit over time. The same effect weeds out genetical experiments that didn’t turn out so good.</p>
-<p>If we apply these insights to the domain of software engineering, we are able to draw a few conclusions. As a start, we can notice that if we would apply the same mutation rate as in the human genome to a software project of 10,000 lines of code, only 0.0001 lines should be changed for every release! Given that the average software project is much less complex than the human genome, and usually with much less at stakes as well, we can probably allow for a somewhat higher mutation rate than that though. Interestingly enough, the <a href=https://en.wikipedia.org/wiki/Error_catastrophe>Wikipedia article</a> on the aforementioned concept of error catastrophe backs this assumption up by stating that the relatively simple genome of RNA viruses (around 10,000 base pairs, compared to the human DNA with 3.3 billion base pairs) can tolerate a much higher mutation rate than human DNA – as high as 10-3 per generation in fact.</p>
-<p>If we instead use the mutation rate of these RNA viruses, whose genetical complexity is in the same order of magnitude as a the code in a medium-sized software project, we arrive at a more realistic number of 10 lines of code changed for every release. This might still sound ridiculously low if you are used to mastodonic releases, perhaps on a monthly or even yearly basis. However, I would argue that – as in countless other cases as well – it is more beneficial to mimic nature and take only one small step at a time. We also have the benefit of being able of completing this full iteration cycle for our software products many times each day, meaning that we will progress steadily over time, just that it will happen in smaller increments.</p>
-<p>The pattern I have just described is of course what we nowadays call <a href=https://en.wikipedia.org/wiki/Continuous_delivery>continuous delivery</a>, but the same principle has been well known to software researchers for <a href=http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF>at least the past 50 years</a> (I highly recommend watching <a href=https://about.me/kevlin>Kevlin Henney&rsquo;s</a> talk <a href="https://www.youtube.com/watch?v=AbgsfeGvg3E">Old is the New New</a> for more on this topic). Still, I feel its core principles are way too often brushed aside in the industry, in particular within so-called &ldquo;mature&rdquo; or &ldquo;traditional&rdquo; companies, simply based upon misconceptions or various logical fallacies. Hopefully this will all change for the better sooner than later, and anyway it’s always fun and inspiring to draw parallels between the natural sciences and software engineering!</p>
-<p>Thanks for reading – see you next time.</p>
+<p>This blog post describes how to implement token-based authentication and authorization using .NET Core 6.0.</p>
+<p>The way this works is that when the user is authenticated, a token containing various claims will be stored in the user&rsquo;s browser.
+This cookie will be used in subsequent requests, and the claims can be checked on different endpoints in order to provide authorization.</p>
+<p>Now let&rsquo;s get coding!</p>
+<p>Inside Startup.cs, add the following to the <code>ConfigureServices(IServiceCollection services)</code> method:</p>
+<pre tabindex=0><code>services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(o =&gt; o.LoginPath = new PathString(&quot;/auth/login&quot;));
+
+services.AddAuthorization(options =&gt;
+{
+    options.AddPolicy(&quot;Admin&quot;, policy =&gt;
+        policy.RequireClaim(&quot;Roles&quot;, &quot;admin&quot;));
+});
+</code></pre><p>And in the <code>Configure(IApplicationBuilder app, IWebHostEnvironment env)</code> method (it is important that these lines comes after <code>app.UseRouting()</code> but before <code>app.UseEndpoints(...)</code>):</p>
+<pre tabindex=0><code>app.UseAuthentication();
+app.UseAuthorization();
+</code></pre><p>Next you can annotate your Controller or an individual endpoint with the Policy we just created. This will make sure that the user is logged in and has the required role, otherwise we will get redirected to the login page or access denied page respectively.</p>
+<pre tabindex=0><code>[Authorize(Policy = &quot;Admin&quot;)]
+</code></pre><p>Now comes the slightly more tricky part. When the user logs in, we need to make sure that his or her roles are included in the token.</p>
+<pre tabindex=0><code>// This part you need to implement for yourself:
+var dbUser = _userRepository.Authenticate(dto.Email, dto.Password);
+
+// Extract the user's roles from database and put into claims
+var claims = new[] { new Claim(&quot;Roles&quot;, dbUser.Roles) };
+
+var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+// This will store a cookie containing the authentication token in the user's browser
+await HttpContext.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme, 
+    new ClaimsPrincipal(identity));
+</code></pre><p>When the user logs out, we need to clear the browser cookie which is simple enough:</p>
+<pre tabindex=0><code>await HttpContext.SignOutAsync();
+</code></pre>
 </div>
 </article>
 </main>
@@ -64,15 +90,9 @@ My name is Gustav Sundin and I currently work as software engineering consultant
 </div>
 <nav class="pager flex">
 <div class="pager__item pager__item--prev">
-<a class=pager__link href=/Why-requirements-dont-work/ rel=prev>
+<a class=pager__link href=/Introducing-Frontman/ rel=prev>
 <span class=pager__subtitle>«&#8201;Previous</span>
-<p class=pager__title>Why requirements don't work</p>
-</a>
-</div>
-<div class="pager__item pager__item--next">
-<a class=pager__link href=/Unix-Tools/ rel=next>
-<span class=pager__subtitle>Next&#8201;»</span>
-<p class=pager__title>Unix Tools</p>
+<p class=pager__title>Introducing Frontman</p>
 </a>
 </div>
 </nav>

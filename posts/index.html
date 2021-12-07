@@ -36,6 +36,30 @@
 </header><article class="list__item post">
 <header class=list__header>
 <h2 class="list__title post__title">
+<a href=/token-based-authorization-in-dotnet/ rel=bookmark>
+Token-Based Authorization in .NET Core 6.0
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-12-06T00:00:00Z>2021-12-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Patterns/ rel=category>Patterns</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+This blog post describes how to implement token-based authentication and authorization using .NET Core 6.0.
+The way this works is that when the user is authenticated, a token containing various claims will be stored in the user&rsquo;s browser. This cookie will be used in subsequent requests, and the claims can be checked on different endpoints in order to provide authorization.
+Now let&rsquo;s get coding!
+Inside Startup.cs, add the following to the ConfigureServices(IServiceCollection services) method:
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/token-based-authorization-in-dotnet/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
 <a href=/Introducing-Frontman/ rel=bookmark>
 Introducing Frontman
 </a>
@@ -225,28 +249,6 @@ Let&rsquo;s take a simple example from the world of JavaScript, where we can&rsq
 <div class="list__footer clearfix">
 <a class="list__footer-readmore btn" href=/patterns/refactoring/2021/04/12/avoid-else.html/>Read more…</a>
 </div>
-</article><article class="list__item post">
-<header class=list__header>
-<h2 class="list__title post__title">
-<a href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/ rel=bookmark>
-Minimize Java Lambda Cold Start Times
-</a>
-</h2>
-<div class="list__meta meta"><div class="meta__item-author meta__item">
-<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
-</div>
-<div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-04-08T09:25:58Z>2021-04-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Implementation/ rel=category>Implementation</a>
-</span>
-</div></div>
-</header>
-<div class="content list__excerpt post__content clearfix">
-If you have ever run Java inside a lambda function on AWS, you will have noticed the quite significant cold start times that comes with spinning up the JVM environment. In this post, I will discuss some different tricks you can use to minimize these cold start times.
-The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda available to handle an incoming request, which usually happens whenever an endpoint experiences a large and sudden spike in traffic.
-</div>
-<div class="list__footer clearfix">
-<a class="list__footer-readmore btn" href=/implementation/aws/2021/04/08/minimize-java-lambda-coldstarts.html/>Read more…</a>
-</div>
 </article>
 </main>
 <div class=pagination>
@@ -259,11 +261,11 @@ The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda 
 <h4 class=widget__title>Recent Posts</h4>
 <div class=widget__content>
 <ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/token-based-authorization-in-dotnet/>Token-Based Authorization in .NET Core 6.0</a></li>
 <li class=widget__item><a class=widget__link href=/Introducing-Frontman/>Introducing Frontman</a></li>
 <li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
 <li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li>
 <li class=widget__item><a class=widget__link href=/nginx-reverse-proxy/>How to Build a Reverse Proxy</a></li>
-<li class=widget__item><a class=widget__link href=/dotnet-audit-logs/>Automatic Audit Logs in .NET</a></li>
 </ul>
 </div>
 </div>
@@ -301,7 +303,7 @@ The problem with cold starts arises when there are no &ldquo;warm&rdquo; lambda 
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Patterns/>Patterns</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span>
+<span class="widget__counter widget__counter--bubble">3</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Refactoring/>Refactoring</a>&nbsp;

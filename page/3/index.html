@@ -35,6 +35,28 @@
 <article class="list__item post">
 <header class=list__header>
 <h2 class="list__title post__title">
+<a href=/dockerized-db-tests/ rel=bookmark>
+Dockerized database testing
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2019-03-29T11:11:30Z>2019-03-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Testing/ rel=category>Testing</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+In this post I am going to give you an overview of different approaches to use when unit testing your backend code and database calls.
+Background In my current project, we have a backend written in Go and a PostgreSQL database. We have for a long time been writing unit tests for the backend to be able to guarantee that the code is working as intended. In order to not have to rely on a database connection and be dependent on the state of the data in that database, we chose to mock away all database calls using a tool called go-sqlmock in the unit tests.
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/dockerized-db-tests/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
 <a href=/Unix-Tools/ rel=bookmark>
 Unix Tools
 </a>
@@ -239,11 +261,11 @@ In my daily work as a software engineer, I read and think a lot on various topic
 <h4 class=widget__title>Recent Posts</h4>
 <div class=widget__content>
 <ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/localhost-https/>How to use HTTPS on localhost</a></li>
 <li class=widget__item><a class=widget__link href=/token-based-authorization-in-dotnet/>Token-Based Authorization in .NET Core 6.0</a></li>
 <li class=widget__item><a class=widget__link href=/Introducing-Frontman/>Introducing Frontman</a></li>
 <li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
 <li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li>
-<li class=widget__item><a class=widget__link href=/nginx-reverse-proxy/>How to Build a Reverse Proxy</a></li>
 </ul>
 </div>
 </div>
@@ -269,7 +291,7 @@ In my daily work as a software engineer, I read and think a lot on various topic
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">8</span>
+<span class="widget__counter widget__counter--bubble">9</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
@@ -292,12 +314,16 @@ In my daily work as a software engineer, I read and think a lot on various topic
 <span class="widget__counter widget__counter--bubble">3</span>
 </li>
 <li class=widget__item>
+<a class=widget__link href=/categories/Security/>Security</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">1</span>
+</li>
+<li class=widget__item>
 <a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
 <span class="widget__counter widget__counter--bubble">3</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">5</span>
+<span class="widget__counter widget__counter--bubble">6</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Workflow/>Workflow</a>&nbsp;

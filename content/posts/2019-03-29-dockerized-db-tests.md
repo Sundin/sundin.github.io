@@ -29,7 +29,7 @@ This severe drawback led us to where we are now: firing up a new database instan
 
 ## Docker to the rescue
 
-I have chosen not to include any source code in this blog post (that might be the topic for another post if you are interested), but the high-level flow of our database tests looks something like this:
+I have chosen not to include any source code in this blog post (that is the topic of [another post](/e2e-tests-with-docker-compose/) if you are interested), but the high-level flow of our database tests looks something like this:
 
 1. Launch a [PostgreSQL Docker container](https://docs.docker.com/samples/library/postgres/).
 2. Validate and run migration files. Here we have the chance to not only validate that the syntax in our migrations is correct, but also that the "up" and "down" parts of the migration actually mirror each other.

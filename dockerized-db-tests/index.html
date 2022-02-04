@@ -55,7 +55,7 @@
 <p>In order to catch these kinds of problems we have to run some kind of tests against a real database. One of our early attempts included connecting to a &ldquo;hands-off&rdquo; database instance where no one had manual access. This worked fine as long as our tests were limited to just reading data from the database, but as soon as we had to start manipulating the data during our tests we started to run into problems. Since each test run would start from a different state than the previous run, we could no longer guarantee that each test run would give the same result. This is a huge problem, since the <a href=https://www.martinfowler.com/articles/nonDeterminism.html>tests need to be deterministic</a> if we are to trust them and be able to integrate them into our automated delivery pipeline.</p>
 <p>This severe drawback led us to where we are now: firing up a new database instance using <a href=https://www.docker.com/>Docker</a> for each run of the test suite.</p>
 <h2 id=docker-to-the-rescue>Docker to the rescue</h2>
-<p>I have chosen not to include any source code in this blog post (that might be the topic for another post if you are interested), but the high-level flow of our database tests looks something like this:</p>
+<p>I have chosen not to include any source code in this blog post (that is the topic of <a href=/e2e-tests-with-docker-compose/>another post</a> if you are interested), but the high-level flow of our database tests looks something like this:</p>
 <ol>
 <li>Launch a <a href=https://docs.docker.com/samples/library/postgres/>PostgreSQL Docker container</a>.</li>
 <li>Validate and run migration files. Here we have the chance to not only validate that the syntax in our migrations is correct, but also that the &ldquo;up&rdquo; and &ldquo;down&rdquo; parts of the migration actually mirror each other.</li>
@@ -106,11 +106,11 @@ My name is Gustav Sundin and I currently work as software engineering consultant
 <h4 class=widget__title>Recent Posts</h4>
 <div class=widget__content>
 <ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/e2e-tests-with-docker-compose/>Robust end-to-end testing with Docker Compose</a></li>
 <li class=widget__item><a class=widget__link href=/localhost-https/>How to use HTTPS on localhost</a></li>
 <li class=widget__item><a class=widget__link href=/token-based-authorization-in-dotnet/>Token-Based Authorization in .NET Core 6.0</a></li>
 <li class=widget__item><a class=widget__link href=/Introducing-Frontman/>Introducing Frontman</a></li>
 <li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
-<li class=widget__item><a class=widget__link href=/runtime-env-vars/>Runtime Environment Variables in the Browser</a></li>
 </ul>
 </div>
 </div>
@@ -136,7 +136,7 @@ My name is Gustav Sundin and I currently work as software engineering consultant
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">9</span>
+<span class="widget__counter widget__counter--bubble">10</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
@@ -164,7 +164,7 @@ My name is Gustav Sundin and I currently work as software engineering consultant
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span>
+<span class="widget__counter widget__counter--bubble">4</span>
 </li>
 <li class=widget__item>
 <a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
@@ -182,6 +182,7 @@ My name is Gustav Sundin and I currently work as software engineering consultant
 <div class=widget__content>
 <a class="widget-taglist__link widget__link btn" href=/tags/.NET/ title=.NET>.NET</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/AWS/ title=AWS>AWS</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/Cypress/ title=Cypress>Cypress</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/DNS/ title=DNS>DNS</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Docker/ title=Docker>Docker</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/DynamoDB/ title=DynamoDB>DynamoDB</a>

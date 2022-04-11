@@ -49,9 +49,9 @@ Or (assuming the posts are in the same folder):
 
 ## Images
 
-This links to an image in the same folder as the blog post:
+This links to an image in the `/static` folder.
 
-    ![Image caption](../image.png)
+    ![Image caption](/image.png)
 
 ## Add theme or other module
 

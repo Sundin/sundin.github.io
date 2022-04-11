@@ -5,7 +5,7 @@ categories:
   - "Sound Realms: Mace & Magic"
 tags:
   - Flutter
-date: "2022-04-08T00:00:00Z"
+date: "2022-04-11T00:00:00Z"
 title: Building a Custom Dialog in Flutter
 slug: "flutter-custom-dialog"
 ---

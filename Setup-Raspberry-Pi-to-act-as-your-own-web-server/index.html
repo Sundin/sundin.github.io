@@ -1,274 +1,48 @@
-<!doctype html><html class=no-js lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title>Setup Raspberry Pi to act as your own web server - Master of Software Engineering</title>
-<script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
-<meta name=description content>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=dns-prefetch href=//fonts.googleapis.com>
-<link rel=dns-prefetch href=//fonts.gstatic.com>
-<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-<link rel=stylesheet href=/css/style.css>
-<link rel="shortcut icon" href=/favicon.ico>
-</head>
-<body class=body>
-<div class="container container--outer">
-<header class=header>
-<div class="container header__container">
-<div class=logo>
-<a class=logo__link href=/ title="Master of Software Engineering" rel=home>
-<div class="logo__item logo__text">
-<div class=logo__title>Master of Software Engineering</div>
-</div>
-</a>
-</div>
-<div class=divider></div>
-</div>
-</header>
-<div class="wrapper flex">
-<div class=primary>
-<main class=main role=main>
-<article class=post>
-<header class=post__header>
-<h1 class=post__title>Setup Raspberry Pi to act as your own web server</h1>
-<div class="post__meta meta"><div class="meta__item-author meta__item">
-<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span>
-</div>
-<div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-09-17T10:58:32+02:00>2021-09-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a>
-</span>
-</div></div>
-</header><div class="content post__content clearfix">
-<p>In this blog post I will describe how I set up my own web server using just a single Raspberry Pi at home. This is a cheap and fun solution to hosting your own applications, in my case using Docker.</p>
-<h2 id=setting-up-the-raspberry-pi>Setting up the Raspberry Pi</h2>
-<p>Install the <a href=https://www.raspberrypi.org/documentation/installation/installing-images/README.md>Raspbian OS</a> on your Raspberry Pi&rsquo;s SD card.</p>
-<p>In order to connect wirelessly to the Raspberry without having it connect to a monitor, you need to set up <a href=https://www.raspberrypi.org/documentation/configuration/wireless/headless.md>headless SSH</a>.</p>
-<p>Connect with Ethernet cable to Router (first time only).</p>
-<p>Find the IP of your Raspberry:</p>
-<pre><code>ping raspberrypi.local
-</code></pre>
-<p>SSH into it:</p>
-<pre><code>ssh pi@&lt;ip&gt;
-</code></pre>
-<p>The default password is <code>raspberry</code>. It might be a good idea to change this now!</p>
-<h3 id=installing-docker>Installing Docker</h3>
-<p>If you want to run your application code inside a Docker container, this is how you do it:</p>
-<p>Install Docker:</p>
-<pre><code>curl -sSL https://get.docker.com | sh
-</code></pre>
-<p>Install Docker Compose:</p>
-<pre><code>sudo pip3 install docker-compose
-</code></pre>
-<p>Run Docker as sudo:</p>
-<pre><code>sudo groupadd docker
+<!doctype html><html class=no-js lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><title>Setup Raspberry Pi to act as your own web server - Master of Software Engineering</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"><link rel=stylesheet href=/css/style.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title="Master of Software Engineering" rel=home><div class="logo__item logo__text"><div class=logo__title>Master of Software Engineering</div></div></a></div><div class=divider></div></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Setup Raspberry Pi to act as your own web server</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>Gustav Sundin</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-09-17T10:58:32+02:00>2021-09-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/Tutorial/ rel=category>Tutorial</a></span></div></div></header><div class="content post__content clearfix"><p>In this blog post I will describe how I set up my own web server using just a single Raspberry Pi at home. This is a cheap and fun solution to hosting your own applications, in my case using Docker.</p><h2 id=setting-up-the-raspberry-pi>Setting up the Raspberry Pi</h2><p>Install the <a href=https://www.raspberrypi.org/documentation/installation/installing-images/README.md>Raspbian OS</a> on your Raspberry Pi&rsquo;s SD card.</p><p>In order to connect wirelessly to the Raspberry without having it connect to a monitor, you need to set up <a href=https://www.raspberrypi.org/documentation/configuration/wireless/headless.md>headless SSH</a>.</p><p>Connect with Ethernet cable to Router (first time only).</p><p>Find the IP of your Raspberry:</p><pre><code>ping raspberrypi.local
+</code></pre><p>SSH into it:</p><pre><code>ssh pi@&lt;ip&gt;
+</code></pre><p>The default password is <code>raspberry</code>. It might be a good idea to change this now!</p><h3 id=installing-docker>Installing Docker</h3><p>If you want to run your application code inside a Docker container, this is how you do it:</p><p>Install Docker:</p><pre><code>curl -sSL https://get.docker.com | sh
+</code></pre><p>Install Docker Compose:</p><pre><code>sudo pip3 install docker-compose
+</code></pre><p>Run Docker as sudo:</p><pre><code>sudo groupadd docker
 d \$USER docker
 newgrp docker
-</code></pre>
-<p>Set up <a href=https://www.raspberrypi-spy.co.uk/2019/02/setting-up-ssh-keys-on-the-raspberry-pi/>ssh keys</a>:</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-</code></pre>
-<p>You are now ready to launch an application of your own! I did it by simply pulling a git repo and following the instructions in the repo&rsquo;s README file.</p>
-<h2 id=connect-from-the-outside-world>Connect from the outside world</h2>
-<p>Make sure you have a public IP. I requested a static public IP address from my ISP, but this is optional. Another option is to set up a dynamic IP address using for example <a href=https://www.noip.com/>noip.com</a> or <a href=https://www.duckdns.org/>duckdns.org</a>.</p>
-<p>Give your Raspberry Pi a static IP on your local network. <a href=https://kb.netgear.com/25722/How-do-I-reserve-an-IP-address-on-my-NETGEAR-router>This</a> is how I did it for my Netgear router.</p>
-<p>Forward port 8080 from your router to the Raspberry. Again, <a href=https://kb.netgear.com/24290/How-do-I-add-a-custom-port-forwarding-service-on-my-Nighthawk-router>this</a> is how I did it on my Netgear router.</p>
-<p>In order to get a nice, user-friendly web domain instead of having to remember your public IP, there&rsquo;s a nice service called <a href=https://www.duckdns.org/>DuckDNS</a>. Just create a free account and then follow the <a href=https://www.duckdns.org/install.jsp>instructions</a>.</p>
-<h2 id=https-communication>HTTPS communication</h2>
-<p>Of course you need to encrypt traffic on your web site. For this, you can use the free service Let&rsquo;s Encrypt.</p>
-<p>Run the following commands on your Raspberry Pi:</p>
-<pre><code>sudo apt-get update
+</code></pre><p>Set up <a href=https://www.raspberrypi-spy.co.uk/2019/02/setting-up-ssh-keys-on-the-raspberry-pi/>ssh keys</a>:</p><pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+</code></pre><p>You are now ready to launch an application of your own! I did it by simply pulling a git repo and following the instructions in the repo&rsquo;s README file.</p><h2 id=connect-from-the-outside-world>Connect from the outside world</h2><p>Make sure you have a public IP. I requested a static public IP address from my ISP, but this is optional. Another option is to set up a dynamic IP address using for example <a href=https://www.noip.com/>noip.com</a> or <a href=https://www.duckdns.org/>duckdns.org</a>.</p><p>Give your Raspberry Pi a static IP on your local network. <a href=https://kb.netgear.com/25722/How-do-I-reserve-an-IP-address-on-my-NETGEAR-router>This</a> is how I did it for my Netgear router.</p><p>Forward port 8080 from your router to the Raspberry. Again, <a href=https://kb.netgear.com/24290/How-do-I-add-a-custom-port-forwarding-service-on-my-Nighthawk-router>this</a> is how I did it on my Netgear router.</p><p>In order to get a nice, user-friendly web domain instead of having to remember your public IP, there&rsquo;s a nice service called <a href=https://www.duckdns.org/>DuckDNS</a>. Just create a free account and then follow the <a href=https://www.duckdns.org/install.jsp>instructions</a>.</p><h2 id=https-communication>HTTPS communication</h2><p>Of course you need to encrypt traffic on your web site. For this, you can use the free service Let&rsquo;s Encrypt.</p><p>Run the following commands on your Raspberry Pi:</p><pre><code>sudo apt-get update
 sudo apt-get install certbot
-</code></pre>
-<p>Make sure port 80 is open.</p>
-<p>Temporarily shut down the server, then run:</p>
-<pre><code>sudo certbot certonly --standalone
-</code></pre>
-<p>The certificates and key chain are now saved under <code>/etc/letsencrypt</code>, so copy them to your application folder or change the certificate path in your application code to point there.</p>
-<h3 id=renew-manually>Renew manually</h3>
-<p>Your certificates will need to be renewed every 90 days. To do so manually, make a bash script with the following content and run it:</p>
-<pre><code>sudo certbot renew --pre-hook &quot;docker-compose stop&quot; --post-hook &quot;sudo docker-compose start&quot;
+</code></pre><p>Make sure port 80 is open.</p><p>Temporarily shut down the server, then run:</p><pre><code>sudo certbot certonly --standalone
+</code></pre><p>The certificates and key chain are now saved under <code>/etc/letsencrypt</code>, so copy them to your application folder or change the certificate path in your application code to point there.</p><h3 id=renew-manually>Renew manually</h3><p>Your certificates will need to be renewed every 90 days. To do so manually, make a bash script with the following content and run it:</p><pre><code>sudo certbot renew --pre-hook &quot;docker-compose stop&quot; --post-hook &quot;sudo docker-compose start&quot;
 
 sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/fullchain.pem ~/bissenisse-backend/sslcert/fullchain.pem
 
 sudo cp /etc/letsencrypt/live/bissenisse.duckdns.org/privkey.pem ~/bissenisse-backend/sslcert/privkey.pem
 
 sudo docker-compose restart
-</code></pre>
-<p>Note: it is very important to run docker-compose with sudo, otherwise the container will have insufficient permissions to read the certificate files.</p>
-<h3 id=automatic-renewal>Automatic renewal</h3>
-<p>You can also set up a cronjob to automatically renew your certificates. Maybe I will return with instructions for this later, for now it is left as an excercise for the reader!</p>
-</div>
-<footer class=post__footer>
-<div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
-<ul class=tags__list>
-<li class=tags__item>
-<a class="tags__link btn" href=/tags/Raspberry-Pi/ rel=tag>Raspberry Pi</a>
-</li>
-<li class=tags__item>
-<a class="tags__link btn" href=/tags/Docker/ rel=tag>Docker</a>
-</li>
-</ul>
-</div>
-</footer>
-</article>
-</main>
-<div class="authorbox clearfix">
-<div class=authorbox__header>
-<span class=authorbox__name>About Gustav Sundin</span>
-</div>
-<div class=authorbox__description>
-My name is Gustav Sundin and I currently work as software engineering consultant at Devies in Gothenburg, Sweden. I also hold a Master’s degree in Software Engineering from Chalmers University. A cool thing with that is that I am allowed to titulate myself “Master of Software Engineering”!
-</div>
-<br>Follow me with <b><a href=/feed.xml>RSS</a></b>.</br>
-<br><i>Did I make a mistake? Please feel free to <b><a href=https://github.com/Sundin/sundin.github.io>issue a pull request to my Github repo</a></b>.</i></br>
-</div>
-<nav class="pager flex">
-<div class="pager__item pager__item--prev">
-<a class=pager__link href=/runtime-env-vars/ rel=prev>
-<span class=pager__subtitle>«&#8201;Previous</span>
-<p class=pager__title>Runtime Environment Variables in the Browser</p>
-</a>
-</div>
-<div class="pager__item pager__item--next">
-<a class=pager__link href=/Introducing-Frontman/ rel=next>
-<span class=pager__subtitle>Next&#8201;»</span>
-<p class=pager__title>Introducing Frontman</p>
-</a>
-</div>
-</nav>
-</div>
-<aside class=sidebar>
-<div class="widget-recent widget">
-<h4 class=widget__title>Recent Posts</h4>
-<div class=widget__content>
-<ul class=widget__list>
-<li class=widget__item><a class=widget__link href=/e2e-tests-with-docker-compose/>Robust end-to-end testing with Docker Compose</a></li>
-<li class=widget__item><a class=widget__link href=/localhost-https/>How to use HTTPS on localhost</a></li>
-<li class=widget__item><a class=widget__link href=/token-based-authorization-in-dotnet/>Token-Based Authorization in .NET Core 6.0</a></li>
-<li class=widget__item><a class=widget__link href=/Introducing-Frontman/>Introducing Frontman</a></li>
-<li class=widget__item><a class=widget__link href=/Setup-Raspberry-Pi-to-act-as-your-own-web-server/>Setup Raspberry Pi to act as your own web server</a></li>
-</ul>
-</div>
-</div>
-<div class="widget-categories widget">
-<h4 class=widget__title>Categories</h4>
-<div class=widget__content>
-<ul class=widget__list>
-<li class=widget__item>
-<a class=widget__link href=/categories/.NET/>.NET</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">4</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Announcements/>Announcements</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">10</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Mindset/>Mindset</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Other/>Other</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Patterns/>Patterns</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Refactoring/>Refactoring</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Security/>Security</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">4</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">6</span>
-</li>
-<li class=widget__item>
-<a class=widget__link href=/categories/Workflow/>Workflow</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">2</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="widget-taglist widget">
-<h4 class=widget__title>Tags</h4>
-<div class=widget__content>
-<a class="widget-taglist__link widget__link btn" href=/tags/.NET/ title=.NET>.NET</a>
+</code></pre><p>Note: it is very important to run docker-compose with sudo, otherwise the container will have insufficient permissions to read the certificate files.</p><h3 id=automatic-renewal>Automatic renewal</h3><p>You can also set up a cronjob to automatically renew your certificates. Maybe I will return with instructions for this later, for now it is left as an excercise for the reader!</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/Raspberry-Pi/ rel=tag>Raspberry Pi</a></li><li class=tags__item><a class="tags__link btn" href=/tags/Docker/ rel=tag>Docker</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><div class=authorbox__header><span class=authorbox__name>About Gustav Sundin</span></div><div class=authorbox__description>My name is Gustav Sundin and I currently work as software engineering consultant at Devies in Gothenburg, Sweden. I also hold a Master’s degree in Software Engineering from Chalmers University. A cool thing with that is that I am allowed to titulate myself “Master of Software Engineering”!</div><br>Follow me with <b><a href=/feed.xml>RSS</a></b>.</br><br><i>Did I make a mistake? Please feel free to <b><a href=https://github.com/Sundin/sundin.github.io>issue a pull request to my Github repo</a></b>.</i></br></div><nav class="pager flex"><div class="pager__item pager__item--prev"><a class=pager__link href=/runtime-env-vars/ rel=prev><span class=pager__subtitle>«&#8201;Previous</span><p class=pager__title>Runtime Environment Variables in the Browser</p></a></div><div class="pager__item pager__item--next"><a class=pager__link href=/Introducing-Frontman/ rel=next><span class=pager__subtitle>Next&#8201;»</span><p class=pager__title>Introducing Frontman</p></a></div></nav></div><aside class=sidebar><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/flutter-custom-dialog/>Building a Custom Dialog in Flutter</a></li><li class=widget__item><a class=widget__link href=/sound-realms/>Introducing Sound Realms: Mace & Magic</a></li><li class=widget__item><a class=widget__link href=/practice-disaster-scenarios/>Practice Disaster Scenarios</a></li><li class=widget__item><a class=widget__link href=/e2e-tests-with-docker-compose/>Robust end-to-end testing with Docker Compose</a></li><li class=widget__item><a class=widget__link href=/localhost-https/>How to use HTTPS on localhost</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/.NET/>.NET</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/Agile/>Agile</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Announcements/>Announcements</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Architecture/>Architecture</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/Implementation/>Implementation</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">11</span></li><li class=widget__item><a class=widget__link href=/categories/Learning/>Learning</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Mindset/>Mindset</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Other/>Other</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Patterns/>Patterns</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Refactoring/>Refactoring</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/Security/>Security</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/Sound-Realms-Mace-Magic/>Sound Realms: Mace & Magic</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">2</span></li><li class=widget__item><a class=widget__link href=/categories/Testing/>Testing</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/Tutorial/>Tutorial</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">7</span></li><li class=widget__item><a class=widget__link href=/categories/Workflow/>Workflow</a>&nbsp;
+<span class="widget__counter widget__counter--bubble">3</span></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Tags</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/.NET/ title=.NET>.NET</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/AWS/ title=AWS>AWS</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Cypress/ title=Cypress>Cypress</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/DNS/ title=DNS>DNS</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Docker/ title=Docker>Docker</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/DynamoDB/ title=DynamoDB>DynamoDB</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/Flutter/ title=Flutter>Flutter</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Java/ title=Java>Java</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Kubernetes/ title=Kubernetes>Kubernetes</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/NGINX/ title=NGINX>NGINX</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/PHP/ title=PHP>PHP</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/Raspberry-Pi/ title="Raspberry Pi">Raspberry Pi</a>
 <a class="widget-taglist__link widget__link btn" href=/tags/React/ title=React>React</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/Vue/ title=Vue>Vue</a>
-</div>
-</div>
-<div class="widget-social widget">
-<h4 class="widget-social__title widget__title">Social</h4>
-<div class="widget-social__content widget__content">
-<div class="widget-social__item widget__item">
-<a class="widget-social__link widget__link btn" title=GitHub rel="noopener noreferrer" href=https://github.com/Sundin target=_blank><svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0C85.9.0.0 85.8.0 191.7c0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2.0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8.0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7.0.0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4.0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5.0 25.6-.2 46.3-.2 52.6.0 5.1 3.5 11.1 13.2 9.2C329 348.2 384 276.4 384 191.7 384 85.8 298 0 192 0z"/></svg>
-<span>GitHub</span>
-</a>
-</div>
-<div class="widget-social__item widget__item">
-<a class="widget-social__link widget__link btn" title=Email href=mailto:gustav@devies.se><svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16V16 0h-16H16 0zm347 16-139 92.5L69 32zM199 157.5l9 5.5 9-5.5L384 46v210H32V46z"/></svg>
-<span>gustav@devies.se</span>
-</a>
-</div>
-<div class="widget-social__item widget__item">
-<a class="widget-social__link widget__link btn" title="Stack Overflow" rel="noopener noreferrer" href=https://stackoverflow.com/users/948942/incinerator target=_blank><svg class="widget-social__link-icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg>
-<span>Stack Overflow</span>
-</a>
-</div>
-<div class="widget-social__item widget__item">
-<a class="widget-social__link widget__link btn" title="About Me" rel="noopener noreferrer" href=/welcome target=_blank><svg class="widget-social__link-icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg>
-<span>About Me</span>
-</a>
-</div>
-</div>
-</div>
-</aside>
-</div>
-<footer class=footer>
-<div class="container footer__container flex">
-<div class=footer__copyright>
-&copy; 2022 Gustav Sundin.
-<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span>
-</div>
-</div>
-</footer>
-</div>
-<script async defer src=/js/menu.js></script>
-</body>
-</html>
+<a class="widget-taglist__link widget__link btn" href=/tags/Vue/ title=Vue>Vue</a></div></div><div class="widget-social widget"><h4 class="widget-social__title widget__title">Social</h4><div class="widget-social__content widget__content"><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=GitHub rel="noopener noreferrer" href=https://github.com/Sundin target=_blank><svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0C85.9.0.0 85.8.0 191.7c0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2.0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8.0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7.0.0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4.0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5.0 25.6-.2 46.3-.2 52.6.0 5.1 3.5 11.1 13.2 9.2C329 348.2 384 276.4 384 191.7 384 85.8 298 0 192 0z"/></svg><span>GitHub</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=Email href=mailto:gustav@devies.se><svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16V16 0h-16H16 0zm347 16-139 92.5L69 32zM199 157.5l9 5.5 9-5.5L384 46v210H32V46z"/></svg><span>gustav@devies.se</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title="Stack Overflow" rel="noopener noreferrer" href=https://stackoverflow.com/users/948942/incinerator target=_blank><svg class="widget-social__link-icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span>Stack Overflow</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title="About Me" rel="noopener noreferrer" href=/welcome target=_blank><svg class="widget-social__link-icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span>About Me</span></a></div></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__copyright>&copy; 2022 Gustav Sundin.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span></div></div></footer></div><script async defer src=/js/menu.js></script></body></html>

@@ -29,7 +29,7 @@ Next create a small script called `env.sh` that will output a JavaScript file co
 # line endings must be \n, not \r\n !
 echo "window._env_ = {" > ./public/env-config.js
 awk -F '=' '{ print $1 ": \"" (ENVIRON[$1] ? ENVIRON[$1] : $2) "\"," }' ./.env >> ./public/env-config.js
-echo "}" >> ./public/env-config.
+echo "}" >> ./public/env-config.js
 ```
 
 Add the follwoing line to `index.html` in order to access the environment variables when the user visits the running web application.

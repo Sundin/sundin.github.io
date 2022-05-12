@@ -24,18 +24,26 @@ ANOTHER_ENV_VAR=another_value
 
 Next create a small script called `env.sh` that will output a JavaScript file containing our runtime environment variables. Remember to make it executable with `chmod +x env.sh`.
 
+The resulting JavaScript file (`env-config.js`) containing the values for all our environment variables will be written to the `/public` folder for local development, and to the root folder when running the deployed version of the app.
+
 ```sh
 #!/bin/sh
 # line endings must be \n, not \r\n !
-echo "window._env_ = {" > ./public/env-config.js
-awk -F '=' '{ print $1 ": \"" (ENVIRON[$1] ? ENVIRON[$1] : $2) "\"," }' ./.env >> ./public/env-config.js
-echo "}" >> ./public/env-config.js
+
+# Write env vars to /public folder when running locally. 
+[ "$1" = "RUNNING_LOCALLY" ] && CONFIG_FILE="./public/env-config.js" || CONFIG_FILE="./env-config.js"
+
+echo "window._env_ = {" > $CONFIG_FILE
+awk -F '=' '{ print $1 ": \"" (ENVIRON[$1] ? ENVIRON[$1] : $2) "\"," }' ./.env >> $CONFIG_FILE
+echo "}" >> $CONFIG_FILE
 ```
 
-Add the follwoing line to `index.html` in order to access the environment variables when the user visits the running web application.
+Now you need to add a line to your `index.html` in order to access the environment variables when the user visits the running web application.
+
+For Vue it will look like this:
 
 ```js
-<script src="/env-config.js"></script>
+<script src="<%= BASE_URL %>env-config.js"></script>
 ```
 
 If you are using React with Create React App, instead use the following line:
@@ -47,8 +55,10 @@ If you are using React with Create React App, instead use the following line:
 Change the start script in `package.json` to also execute the bash script before starting the web server (example for create-react-app, change as applicable for your frontend framework).
 
 ```
-./env.sh && react-scripts start
+./env.sh RUNNING_LOCALLY && react-scripts start
 ```
+
+(By specifying `RUNNING_LOCALLY` here, the script will write the resulting file to the `/public` folder)
 
 The environment variables are now accessible from your JavaScript code as `window._env_.MY_ENV_VAR` and `window._env_.ANOTHER_ENV_VAR`.
 

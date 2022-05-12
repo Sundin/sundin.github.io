@@ -35,6 +35,12 @@ echo "}" >> ./public/env-config.js
 Add the follwoing line to `index.html` in order to access the environment variables when the user visits the running web application.
 
 ```js
+<script src="/env-config.js"></script>
+```
+
+If you are using React with Create React App, instead use the following line:
+
+```js
 <script src="%PUBLIC_URL%/env-config.js"></script>
 ```
 

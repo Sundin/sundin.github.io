@@ -18,14 +18,14 @@
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AuditLoggingMiddleware</span>
 </span></span><span style=display:flex><span>  {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> RequestDelegate <span style=color:#ae81ff>_</span>next;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> RequestDelegate _next;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> AuditLogService <span style=color:#ae81ff>_</span>auditLogService;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> AuditLogService _auditLogService;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> AuditLoggingMiddleware(RequestDelegate next, AuditLogService auditLogService)
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#ae81ff>_</span>next = next;
-</span></span><span style=display:flex><span>      <span style=color:#ae81ff>_</span>auditLogService = auditLogService;
+</span></span><span style=display:flex><span>      _next = next;
+</span></span><span style=display:flex><span>      _auditLogService = auditLogService;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task InvokeAsync(HttpContext context)
@@ -42,7 +42,7 @@
 </span></span><span style=display:flex><span>        context.Response.Body = responseBody;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// Process HTTP request</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>next(context);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> _next(context);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// Once the request has been processed we can grab the resulting response</span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> FormatResponse(context.Response);
@@ -73,7 +73,7 @@
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (endpoint.Metadata?.GetMetadata&lt;NoAuditAttribute&gt;() == <span style=color:#66d9ef>null</span>)
 </span></span><span style=display:flex><span>        {
 </span></span><span style=display:flex><span>          <span style=color:#75715e>// TODO: You need to implement the AuditLogService and AuditMessage classes yourself :)</span>
-</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#ae81ff>_</span>auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> _auditLogService.Log(<span style=color:#66d9ef>new</span> AuditMessage(context, request, response));
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>      }
 </span></span><span style=display:flex><span>      <span style=color:#66d9ef>else</span>

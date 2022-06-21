@@ -10,6 +10,7 @@ tags:
   - React
   - Vue
 slug: runtime-env-vars
+featured: true
 ---
 
 A limitation to all web development frameworks is that environment variables has to be injected during build time in order to made be available in the browser. If we have packaged our web application using Docker, that means that we would need to build a different container image for each different environment where we will want to host our application. This is a waste of resources and also introduces a risk of us ending up with a different codebase in our production environment than what we tried out in our QA or test environment. 

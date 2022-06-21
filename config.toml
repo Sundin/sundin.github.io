@@ -38,10 +38,11 @@ theme = "mainroad"
   list = "right"  # Configure layout for list pages
   single = "right" # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["recent", "categories", "taglist", "social"]
+  widgets = ["featured", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
-  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  featured_num = 5 # Set the number of articles in the "Featured posts" widget
+  recent_num = 5 # Set the number of articles in the "Recent posts" widget
   categories_counter = true # Enable counter for each category in "Categories" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget
 

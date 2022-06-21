@@ -4,6 +4,7 @@ categories:
   - Mindset
 date: "2020-10-14T11:28:50Z"
 title: How I Read a Book
+featured: true
 ---
 
 I read at least 25 books per year, both fiction and non-fiction. I have also worked out a system in order to get as much out of each of these books as possible, and most importantly to actually remember what I read. Today I would like to share my system in case it might help someone else.

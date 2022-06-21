@@ -7,6 +7,7 @@ tags:
 date: "2022-04-10T00:00:00Z"
 title: "Introducing Sound Realms: Mace & Magic"
 slug: "sound-realms"
+featured: true
 ---
 
 [![Sound Realms: Mace & Magic](/sound-realms.jpg)](https://www.sound-realms.com/)

@@ -10,6 +10,7 @@ tags:
 date: "2022-02-04T00:00:00Z"
 title: Robust end-to-end testing with Docker Compose
 slug: "e2e-tests-with-docker-compose"
+featured: true
 ---
 
 End-to-end (E2E) testing is a powerful tool for automated quality assurance. Ideally you want to be able to catch potential errors and bugs already on the unit testing level, but doing so can sometimes be both time-consuming and difficult. Unit testing also relies heavily on mocking out dependencies by nature, so we cannot necessarily guarantee the same behaviour as in our live application. E2E tests are on the other hand often very straightforward to set up and write, and enables us to construct very realistic testing scenarios. Thus we can be very confident that the application being tested really works as expected as long as all the E2E tests pass, even if it can sometimes be a little tricky to pinpoint an error when there's a failure.

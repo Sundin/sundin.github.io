@@ -7,7 +7,6 @@ tags:
 date: "2022-06-21T00:00:01Z"
 title: End-to-end testing field guide
 slug: "e2e-testing-field-guide"
-draft: true
 ---
 
 This is a beginner's guide to getting started with end-to-end (E2E) testing. 

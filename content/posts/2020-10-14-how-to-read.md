@@ -1,6 +1,7 @@
 ---
 categories:
   - Learning
+  - Mindset
 date: "2020-10-14T11:28:50Z"
 title: How I Read a Book
 ---

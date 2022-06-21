@@ -3,6 +3,7 @@ title: "Runtime Environment Variables in the Browser"
 date: "2021-06-30T10:58:32+02:00"
 categories:
   - Tutorial
+  - Implementation
 tags:
   - NGINX
   - Kubernetes

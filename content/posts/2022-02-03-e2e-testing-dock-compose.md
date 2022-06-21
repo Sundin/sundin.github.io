@@ -1,7 +1,9 @@
 ---
 categories:
   - Testing
-  - Implementation
+  - Tutorial
+  - Architecture
+  - Patterns
 tags:
   - Docker
   - Cypress

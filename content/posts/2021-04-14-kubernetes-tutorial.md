@@ -1,7 +1,6 @@
 ---
 categories:
   - Tutorial
-  - Implementation
 tags:
   - Kubernetes
 date: "2021-04-14T08:31:41Z"

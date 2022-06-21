@@ -1,6 +1,8 @@
 ---
 categories:
   - Implementation
+  - Tutorial
+  - Security
 tags:
   - .NET
 date: "2021-12-06T00:00:00Z"

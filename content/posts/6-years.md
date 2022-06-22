@@ -3,7 +3,7 @@ categories:
   - Mindset
 date: "2022-06-22T00:00:01Z"
 title: Learnings from working 6 years as a Software Engineer
-slug: "6-years-as-a-sofware-engineer"
+slug: "sofware-engineer"
 featured: true
 ---
 

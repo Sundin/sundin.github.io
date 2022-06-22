@@ -1,5 +1,5 @@
 ---
-title: "The Weirdest Error"
+title: "The weirdest error"
 description: ""
 date: "2021-06-21T10:58:32+02:00"
 thumbnail: ""

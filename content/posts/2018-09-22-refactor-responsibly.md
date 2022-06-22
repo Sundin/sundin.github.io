@@ -3,7 +3,7 @@ categories:
   - Refactoring
   - Patterns
 date: "2018-09-22T20:34:11Z"
-title: Refactor Responsibly
+title: Refactor responsibly
 slug: Refactor-Responsibly
 ---
 

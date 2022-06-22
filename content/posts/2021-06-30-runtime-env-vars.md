@@ -1,5 +1,5 @@
 ---
-title: "Runtime Environment Variables in the Browser"
+title: "Runtime environment variables in the browser"
 date: "2021-06-30T10:58:32+02:00"
 categories:
   - Tutorial

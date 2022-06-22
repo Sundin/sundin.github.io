@@ -2,7 +2,7 @@
 categories:
   - Testing
 date: "2019-08-07T00:00:00Z"
-title: "Testing: Best Practices"
+title: "Testing: best practices"
 slug: testing-best-practices
 ---
 

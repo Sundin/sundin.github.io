@@ -2,7 +2,7 @@
 categories:
   - Mindset
 date: "2019-08-20T00:00:00Z"
-title: The Ethics of Software Engineering
+title: The ethics of Software Engineering
 slug: The-Ethics-of-Software-Engineering
 ---
 

@@ -2,7 +2,7 @@
 categories:
   - Agile
 date: "2019-01-25T11:10:38Z"
-title: Agile Evolution
+title: Agile evolution
 ---
 
 Everything in nature goes in circles. Days turn into night in a circadian rhythm. Seasons replace each other.

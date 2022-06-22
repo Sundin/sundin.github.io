@@ -3,7 +3,7 @@ categories:
   - Testing
   - Workflow
 date: "2019-06-26T13:00:07Z"
-title: A Successful Testing Strategy
+title: A successful testing strategy
 slug: successful-testing-strategy
 ---
 

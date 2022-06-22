@@ -1,5 +1,5 @@
 ---
-title: "Automatic Audit Logs in .NET"
+title: "Automatic audit logs in .NET"
 date: "2021-06-24T14:58:32+02:00"
 categories:
   - Implementation

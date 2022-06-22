@@ -1,8 +1,10 @@
 ---
 categories:
   - Architecture
+  - Refactoring
+  - Patterns
 date: "2020-01-17T00:00:00Z"
-title: Breaking Synchronous Dependencies
+title: Breaking synchronous dependencies
 ---
 
 A common challenge in software development is how to decide and then fulfill non-functional requirements, such as the maximum response times of your API. Two metrics to consider is the average response time of a certain endpoint, as well as the percentage of outlier requests that will fall outside of the accepted time bounds. Such outliers will always be there, especially when designing a microservice architecture using lambdas with their dreaded cold starts which is common these days.

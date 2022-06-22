@@ -1,5 +1,5 @@
 ---
-title: "How to Build a Reverse Proxy"
+title: "How to build a reverse proxy"
 description: ""
 date: "2021-06-28T10:58:32+02:00"
 thumbnail: ""

@@ -6,7 +6,7 @@ categories:
 tags:
   - Flutter
 date: "2022-04-11T00:00:00Z"
-title: Building a Custom Dialog in Flutter
+title: Building a custom dialog in Flutter
 slug: "flutter-custom-dialog"
 ---
 

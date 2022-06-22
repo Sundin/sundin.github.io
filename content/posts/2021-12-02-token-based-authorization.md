@@ -6,7 +6,7 @@ categories:
 tags:
   - .NET
 date: "2021-12-06T00:00:00Z"
-title: Token-Based Authorization in .NET Core 6.0
+title: Token-based authorization in .NET Core 6.0
 slug: "token-based-authorization-in-dotnet"
 ---
 

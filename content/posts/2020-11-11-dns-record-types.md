@@ -4,7 +4,7 @@ categories:
 tags:
   - DNS
 date: "2020-11-11T14:28:20Z"
-title: DNS Record Types
+title: DNS record types
 ---
 
 In this blog post I will briefly explain some of the most common [DNS record types](https://en.wikipedia.org/wiki/List_of_DNS_record_types).

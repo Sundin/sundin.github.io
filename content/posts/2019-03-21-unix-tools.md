@@ -2,7 +2,7 @@
 categories:
   - Workflow
 date: "2019-03-21T13:33:20Z"
-title: Unix Tools
+title: Unix tools
 ---
 
 What is commonly referred to as the **Unix tools** are a set of commands that are available on all Unix systems. Together, these form part of the basic toolkit for any serious software engineer. You should learn how to use these tools properly, as they can grant you an enormous boost in your daily workflow, and not the least when it comes to automating task and routines, such as in your team's automated CI pipeline.

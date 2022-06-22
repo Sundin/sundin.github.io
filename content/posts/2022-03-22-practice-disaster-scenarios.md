@@ -3,7 +3,7 @@ categories:
   - Mindset
   - Workflow
 date: "2022-03-22T00:00:00Z"
-title: Practice Disaster Scenarios
+title: Practice disaster scenarios
 slug: "practice-disaster-scenarios"
 ---
 

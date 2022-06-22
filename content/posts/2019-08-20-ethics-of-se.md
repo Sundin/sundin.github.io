@@ -3,6 +3,7 @@ categories:
   - Mindset
 date: "2019-08-20T00:00:00Z"
 title: The Ethics of Software Engineering
+slug: The-Ethics-of-Software-Engineering
 ---
 
 I believe software developers have just as high ethical responsibilities as [engineers within other disciplines](https://en.wikipedia.org/wiki/Engineering_ethics). Many engineers (and other professionals) do for example not want to work with weapons, animal experiments and so on. My opinion is that you should consider the ethical implications of your work even if you are within a more "mundane" field such as e-commerce or game development.

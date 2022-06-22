@@ -4,6 +4,7 @@ categories:
   - Patterns
 date: "2018-09-22T20:34:11Z"
 title: Refactor Responsibly
+slug: Refactor-Responsibly
 ---
 
 Rewriting a large piece of software from scratch is [usually not a good idea](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/), regardless of how messy or problematic the original/legacy code is. The reason is that you never know how long the rewrite is gonna take, what unexpected problems you might run into or even if your new solution is gonna be any better than the old. You might end up spending several months on refactoring without any possibility of releasing anything into production until the rewrite is complete. Remember that all code that's written but not released is a huge cause for concern as its the perfect breeding ground for hidden bugs.

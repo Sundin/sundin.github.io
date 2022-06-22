@@ -9,7 +9,7 @@ featured: true
 
 By now I have studied software engineering at university for 6 years and then worked professionally within the field for another 6 years. During this time I have picked up a few patterns, methodologies and assorted tips & tricks that I would like to share with everyone. Hopefully you'll learn something, and please let me know if you disagree with anything. There are always different aspects of every topics and I would love to hear your thoughts about it!
 
-## Programming vs Sofware Engineering
+## Programming vs Software Engineering
 
 Before we begin, we need to get one thing straight. You might imagine that a programmer and a software engineer is two different words describing the same role. While the two might ostensibly work on the same things &mdash; writing software &mdash; the methodology they follow while doing so are actually drastically different. A programmer can be anybody writing software. They can be self-learned or educated, but their methodology is usually ad-hoc at best and non-existent at worst. A software engineer, on the other hand, follows a strict and systematic approach to her work. An engineer needs to be disciplined, adaptable, and a master at problem solving. Therefore the engineer usually have a formal education where they learned how to write, read, and learn professionally, and then they have put that knowledge into use at work in order to learn even more. 
 

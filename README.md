@@ -1,12 +1,6 @@
 # Master of Software Engineering
 
-This is my blog.
-
-## Running locally
-
-    hugo server
-
-The site is now running at `http://localhost:1313`.
+This is my blog, [https://sundin.github.io/](https://sundin.github.io/).
 
 ## Installation
 
@@ -18,6 +12,12 @@ Get submodules:
 
     git submodule init
     git submodule update
+
+## Running locally
+
+    hugo server
+
+The site is now running at `http://localhost:1313`.
 
 ## Usage
 

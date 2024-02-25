@@ -1,7 +1,7 @@
 ---
 categories:
   - Announcements
-  - "Sound Realms: Mace & Magic"
+  - "Sound Realms"
 tags:
   - Flutter
 date: "2022-04-10T00:00:00Z"
